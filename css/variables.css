@@ -1,0 +1,21 @@
+:root {
+	/** Sizes **/
+	--logo: 55px;
+	--nav: 85px;
+
+	/** Colors **/
+	--bg-color: #eeeeee;
+	--text-color: #131313;
+
+	/* Nav */
+	--nav-bg-color: #eeeeee;
+	--nav-border-color: #c9c9c9;
+	--nav-text-color: var(--text-color);
+	--nav-item-hover-style-color: #2161ff;
+	--nav-item-hover-text-color: var(--text-color);
+
+	/* Footer */
+	--footer-bg-color: #d5d5d5;
+	--footer-border-color: #c9c9c9;
+	--footer-text-color: #464646;
+}

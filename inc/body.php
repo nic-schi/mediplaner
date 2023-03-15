@@ -1,8 +1,6 @@
 <body>
 <div class="wrapper">
-    <nav>
-        <div class="item">
-            Startseite
-        </div>
-    </nav>  
+    <?php
+        include_once "nav.php";    
+    ?>
     <main>

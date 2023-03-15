@@ -1,20 +1,20 @@
-
 div.wrapper {
-    display: grid;
-    grid-template-areas: 
-    "nav"
-    "main"
-    "footer";
-    grid-template-rows: 75px 1fr 35px;
-    grid-template-columns: 1fr;
+	display: grid;
+	grid-template-areas:
+		"nav"
+		"main"
+		"footer";
+	grid-template-rows: var(--nav) 1fr auto;
+	grid-template-columns: 1fr;
 }
 
 nav {
-    grid-area: "nav";
+	grid-area: "nav";
 }
 main {
-    grid-area: "main";
+    padding: 1rem;
+	grid-area: "main";
 }
 footer {
-    grid-area: "footer";
+	grid-area: "footer";
 }

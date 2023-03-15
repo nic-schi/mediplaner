@@ -15,7 +15,8 @@
 
     <!-- Stylesheets -->
     <link rel="stylesheet" type="text/css" href="css/style.css" />
-    <link rel="stylesheet" type="text/css" href="css/colors.css" />
+    <link rel="stylesheet" type="text/css" href="css/variables.css" />
     <link rel="stylesheet" type="text/css" href="css/layout.css" />
     <link rel="stylesheet" type="text/css" href="css/nav.css" />
+    <link rel="stylesheet" type="text/css" href="css/footer.css" />
 </head>
