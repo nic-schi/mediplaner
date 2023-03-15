@@ -28,24 +28,31 @@ nav .items {
 	flex-direction: row;
 	justify-content: flex-end;
 	flex: auto 0 0;
-	align-self: stretch;
+	align-self: flex-end;
+	background-color: var(--bg-color);
+	border: 1px solid var(--nav-border-color);
+	border-bottom: none;
+	border-radius: 12px 12px 0 0;
+}
+nav .items .item:first-child {
+	border-top-left-radius: 12px;
+}
+nav .items .item:last-child {
+	border-top-right-radius: 12px;
 }
 
 nav .items .item {
 	flex: auto 1 1;
-	font-size: 13pt;
-	padding: 1.25rem 2rem;
+	padding: 0.75rem 2.5rem;
 	display: flex;
-	justify-content: center;
+	justify-content: flex-end;
 	align-items: center;
-
-	border-top: 4px solid transparent;
-	border-bottom: 4px solid transparent;
-	transition: 0.15s border-bottom-color ease-in-out;
+	transition: 0.15s ease-in-out;
 }
 nav .items .item:hover,
 nav .items .item.active {
-	border-bottom-color: var(--nav-item-hover-style-color);
+	background-color: var(--nav-item-hover-style-color);
+	color: var(--nav-item-hover-text-color);
 }
 
 nav .logo-container .logo {
@@ -55,5 +62,6 @@ nav .logo-container .logo {
 }
 nav .logo-container .name {
 	padding: 0.75rem;
+	letter-spacing: 0.05rem;
 	font-size: 16pt;
 }

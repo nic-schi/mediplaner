@@ -4,18 +4,19 @@
 	--nav: 85px;
 
 	/** Colors **/
-	--bg-color: #eeeeee;
+	--bg-color: #FFFDFA;
 	--text-color: #131313;
-
+	--style-color: #1D58E9;
+	
 	/* Nav */
-	--nav-bg-color: #eeeeee;
+	--nav-bg-color: #F6F7F8;
 	--nav-border-color: #c9c9c9;
 	--nav-text-color: var(--text-color);
-	--nav-item-hover-style-color: #2161ff;
-	--nav-item-hover-text-color: var(--text-color);
+	--nav-item-hover-style-color: var(--style-color);
+	--nav-item-hover-text-color: #ffffff;
 
 	/* Footer */
-	--footer-bg-color: #d5d5d5;
+	--footer-bg-color: #F6F7F8;
 	--footer-border-color: #c9c9c9;
 	--footer-text-color: #464646;
 }
