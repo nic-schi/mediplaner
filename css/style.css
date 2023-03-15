@@ -1,0 +1,17 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', 'Calibri', 'Helvetica', 'Arial', 'Segoe UI', 'sans-serif';
+}
+body {
+    font-size: 12pt;
+}
+html, body, div.wrapper {
+    overflow-x: hidden;
+    min-height: 100vh;
+    height: 100%;
+    min-width: 100vw;
+    width: 100%;
+}
+
