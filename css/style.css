@@ -21,3 +21,8 @@ html, body, div.wrapper {
     font-family: "Roboto";
     src: url("fonts/Roboto-Regular.ttf");
 }
+
+img.icon {
+    fill: var(--style-color);
+    color: var(--style-color);
+}

@@ -17,12 +17,13 @@
     <link rel="stylesheet" type="text/css" href="css/style.css" />
     <link rel="stylesheet" type="text/css" href="css/variables.css" />
     <link rel="stylesheet" type="text/css" href="css/layout.css" />
-    <link rel="stylesheet" type="text/css" href="css/icons.css" />
     <link rel="stylesheet" type="text/css" href="css/nav.css" />
     <link rel="stylesheet" type="text/css" href="css/footer.css" />
+    <link rel="stylesheet" type="text/css" href="css/loader.css" />
     <link rel="stylesheet" type="text/css" href="css/plan.css" />
 
     <!-- Javascript -->
+    <script language="javascript" type="text/javascript" src="js/loader.js"></script>
     <script language="javascript" type="text/javascript" src="js/navigation.js"></script>
 </head>
 <body>
@@ -44,7 +45,14 @@
             </a>
         </div>
     </nav>  
-    <main id="app"></main>
+    <main>
+        <div id="app"></div>
+        <div id="loader" class="loader-container show">
+            <div class="loader">
+                <div></div><div></div><div></div><div></div>
+            </div>
+        </div>
+    </main>
     <footer>
         &copy; Nichlas Schipper 2023
     </footer>

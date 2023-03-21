@@ -23,17 +23,22 @@ const activateNavitem = (pfad) => {
 };
 
 const router = async () => {
+    let loader = document.getElementById("loader");
     let app = document.getElementById("app");
     let url = ("/" + window.location.hash.slice(1)) || "/";
     let route = routes.find((item) => item.pfad === url);
 
     if (route != undefined) {
+        showLoader();
+
         let response = await fetch("seiten/" + route.datei);
         if (response.status === 200) {
             activateNavitem(route.pfad);
 
             let text = await response.text();
             app.innerHTML = text;
+
+            hideLoader();
         }
     }
     console.log(url, routes, route)

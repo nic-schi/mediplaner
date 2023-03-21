@@ -13,6 +13,7 @@ nav {
 }
 main {
     padding: 1rem;
+	position: relative;
 	grid-area: "main";
 }
 footer {
