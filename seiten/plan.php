@@ -1,10 +1,3 @@
-<?php
-    $TITLE = "Mein Plan | Mediplaner";
-
-    require_once "inc/head.php";
-    include_once "inc/body.php";
-?>
-
 <table class="plan">
     <thead>
         <tr>
@@ -66,7 +59,3 @@
         </tr>
     </tbody>
 </table>
-
-<?php 
-    include_once "inc/body-end.php";
-?>

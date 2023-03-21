@@ -5,7 +5,7 @@
     <meta name="author" content="Nichlas Schipper" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
-    <title><?php echo $TITLE; ?></title>
+    <title>Mediplaner</title>
 
     <!-- Favicon (Quelle: svgrepo.com) -->
     <link rel="icon" type="image/svg+xml" href="images/favicon/favicon.svg" sizes="any" />
@@ -21,4 +21,33 @@
     <link rel="stylesheet" type="text/css" href="css/nav.css" />
     <link rel="stylesheet" type="text/css" href="css/footer.css" />
     <link rel="stylesheet" type="text/css" href="css/plan.css" />
+
+    <!-- Javascript -->
+    <script language="javascript" type="text/javascript" src="js/navigation.js"></script>
 </head>
+<body>
+<div class="wrapper">
+    <nav>
+        <a class="logo-container" href="index.html">
+            <img src="images/favicon/favicon.svg" class="logo" />
+            <span class="name">Mediplaner</span>
+        </a>
+        <div class="items">
+            <a href="#" class="item active">
+                Startseite
+            </a>
+            <a href="#plan" class="item">
+                Mein Plan
+            </a>
+            <a href="#impressum" class="item">
+                Impressum
+            </a>
+        </div>
+    </nav>  
+    <main id="app"></main>
+    <footer>
+        &copy; Nichlas Schipper 2023
+    </footer>
+</div>
+</body>
+</html>
