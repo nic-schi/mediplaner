@@ -28,18 +28,18 @@
 <body>
 <div class="wrapper">
     <nav>
-        <a class="logo-container" href="index.html">
+        <a class="logo-container" href="#">
             <img src="images/favicon/favicon.svg" class="logo" />
             <span class="name">Mediplaner</span>
         </a>
-        <div class="items">
-            <a href="#" class="item active">
+        <div class="items" id="navitems">
+            <a href="#" id="/" onclick="activateNavitem('/')" class="item">
                 Startseite
             </a>
-            <a href="#plan" class="item">
+            <a href="#plan" id="/plan" onclick="activateNavitem('/plan')" class="item">
                 Mein Plan
             </a>
-            <a href="#impressum" class="item">
+            <a href="#impressum" id="/impressum" onclick="activateNavitem('/impressum')" class="item">
                 Impressum
             </a>
         </div>

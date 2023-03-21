@@ -6,6 +6,22 @@ const route = (pfad, datei) => {
     });
 }
 
+const clearNavItems = () => {
+    // Entferne alle Active-Klassen von den Navitems
+    const navItems = document.getElementById("navitems");
+    [...navItems.children].forEach(item => {
+        item.classList.remove("active");
+    });
+}
+
+const activateNavitem = (pfad) => {
+    clearNavItems();
+    
+    // Setze die Active-Klasse für das Aktive Navitem
+    let navItem = document.getElementById(pfad);
+    navItem.classList.add("active");
+};
+
 const router = async () => {
     let app = document.getElementById("app");
     let url = ("/" + window.location.hash.slice(1)) || "/";
@@ -14,6 +30,8 @@ const router = async () => {
     if (route != undefined) {
         let response = await fetch("seiten/" + route.datei);
         if (response.status === 200) {
+            activateNavitem(route.pfad);
+
             let text = await response.text();
             app.innerHTML = text;
         }
