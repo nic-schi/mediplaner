@@ -6,6 +6,29 @@ const route = (pfad, datei) => {
     });
 }
 
+/**
+ * Ändert den Zustand der Navitems und kann mit dem Statusparameter gesteuert werden.
+ * - ändert von Versteckt zu Angezeigt.
+ * - ändert von Angezeigt zu Versteckt.
+ * 
+ * @param {*} status hide oder show
+ */
+const toggleNavItems = (status) => {
+    let hamburger = document.getElementById("hamburger");
+    let hDisplay = getStyle(hamburger, "display");
+    if (
+        hDisplay !== "none"
+    ) {
+        let navItems = document.getElementById("navitems");
+                
+        if (status === "hide" || navItems.classList.contains("responsive")) {
+            navItems.classList.remove("responsive");
+        } else {
+            navItems.classList.add("responsive");
+        }
+    }
+}
+
 const clearNavItems = () => {
     // Entferne alle Active-Klassen von den Navitems
     const navItems = document.getElementById("navitems");
@@ -23,7 +46,6 @@ const activateNavitem = (pfad) => {
 };
 
 const router = async () => {
-    let loader = document.getElementById("loader");
     let app = document.getElementById("app");
     let url = ("/" + window.location.hash.slice(1)) || "/";
     let route = routes.find((item) => item.pfad === url);
@@ -38,6 +60,7 @@ const router = async () => {
             let text = await response.text();
             app.innerHTML = text;
 
+            toggleNavItems("hide");
             hideLoader();
         }
     }

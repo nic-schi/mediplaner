@@ -4,8 +4,8 @@ div.wrapper {
 		"nav"
 		"main"
 		"footer";
-	grid-template-rows: var(--nav) 1fr auto;
-	grid-template-columns: 1fr;
+	grid-template-rows: auto 1fr auto;
+	grid-template-columns: 100%;
 }
 
 nav {

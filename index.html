@@ -23,6 +23,7 @@
     <link rel="stylesheet" type="text/css" href="css/plan.css" />
 
     <!-- Javascript -->
+    <script language="javascript" type="text/javascript" src="js/functions.js"></script>
     <script language="javascript" type="text/javascript" src="js/loader.js"></script>
     <script language="javascript" type="text/javascript" src="js/navigation.js"></script>
 </head>
@@ -33,6 +34,9 @@
             <img src="images/favicon/favicon.svg" class="logo" />
             <span class="name">Mediplaner</span>
         </a>
+
+        <img onclick="toggleNavItems()" id="hamburger" src="images/icons/hamburger.svg" />
+
         <div class="items" id="navitems">
             <a href="#" id="/" onclick="activateNavitem('/')" class="item">
                 Startseite
