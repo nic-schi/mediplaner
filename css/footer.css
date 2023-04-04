@@ -1,7 +1,27 @@
 footer {
 	padding: 0.75rem 2rem;
 	text-align: center;
+	position: relative;
+	justify-content: center;
+	align-items: center;
+	display: flex;
 	border-top: 1px solid var(--nav-border-color);
 	background-color: var(--footer-bg-color);
 	color: var(--footer-text-color);
+}
+
+footer .text {
+	flex: auto 1 1;
+}
+
+footer .social-media {
+	flex: 15% 1 1;
+}
+footer .social-media a.link {
+	padding: 0 0.2rem;
+	text-decoration: none;
+}
+footer .social-media a.link img {
+	width: 20px;
+	height: auto;
 }

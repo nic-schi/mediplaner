@@ -94,5 +94,10 @@ window.addEventListener("load", (event) => {
     route("/", "startseite.php", "Startseite");
     route("/impressum", "impressum.php", "Impressum");
     route("/plan", "plan.php", "Mein Plan");
+
+    document.getElementById("hamburger").addEventListener("click", () => toggleNavItems());
+    document.getElementById("/").addEventListener("click", () => activateNavitem("/"));
+    document.getElementById("/plan").addEventListener("click", () => activateNavitem("/plan"));
+    document.getElementById("/impressum").addEventListener("click", () => activateNavitem("/impressum"));
 });
 window.addEventListener("load", router);

@@ -40,3 +40,14 @@ img.icon {
     fill: var(--style-color);
     color: var(--style-color);
 }
+
+#startpage {
+    max-width: 700px;
+    margin: auto;
+}
+
+hr {
+    margin: 1.25rem 0;
+    background-color: none;
+    border: 1px solid rgba(0, 0, 0, 0.18);
+}

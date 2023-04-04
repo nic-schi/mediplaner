@@ -12,7 +12,7 @@ nav {
 	grid-area: "nav";
 }
 main {
-    padding: 1rem;
+    padding: 1.5rem 1rem;
 	position: relative;
 	grid-area: "main";
 }
