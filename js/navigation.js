@@ -1,8 +1,17 @@
 const routes = [];
-const route = (pfad, datei) => {
+
+/**
+ * Definiert eine Route.
+ * 
+ * @param {*} pfad Der Pfad der Route
+ * @param {*} datei Der Pfad der Datei
+ * @param {*} titel Der Titel der Seite
+ */
+const route = (pfad, datei, titel) => {
     routes.push({
         "pfad": pfad,
-        "datei": datei
+        "datei": datei,
+        "titel": titel
     });
 }
 
@@ -29,14 +38,21 @@ const toggleNavItems = (status) => {
     }
 }
 
+/**
+ * Entfernt die Active-Klassen der Navigationsitems.
+ */
 const clearNavItems = () => {
-    // Entferne alle Active-Klassen von den Navitems
     const navItems = document.getElementById("navitems");
     [...navItems.children].forEach(item => {
         item.classList.remove("active");
     });
 }
 
+/**
+ * Aktiviert ein Navigationsitem mit Hilfe des angegebenen Pfades.
+ * 
+ * @param {*} pfad Der Pfad der Datei
+ */
 const activateNavitem = (pfad) => {
     clearNavItems();
     
@@ -45,6 +61,9 @@ const activateNavitem = (pfad) => {
     navItem.classList.add("active");
 };
 
+/**
+ * Definiert den JavaScript-Router.
+ */
 const router = async () => {
     let app = document.getElementById("app");
     let url = ("/" + window.location.hash.slice(1)) || "/";
@@ -57,6 +76,8 @@ const router = async () => {
         if (response.status === 200) {
             activateNavitem(route.pfad);
 
+            document.title = route.titel + " | Mediplaner";
+
             let text = await response.text();
             app.innerHTML = text;
 
@@ -67,11 +88,11 @@ const router = async () => {
     console.log(url, routes, route)
 } 
 
+// Events
 window.addEventListener("hashchange", router);
-
 window.addEventListener("load", (event) => {
-    route("/", "startseite.php");
-    route("/impressum", "impressum.php");
-    route("/plan", "plan.php");
+    route("/", "startseite.php", "Startseite");
+    route("/impressum", "impressum.php", "Impressum");
+    route("/plan", "plan.php", "Mein Plan");
 });
 window.addEventListener("load", router);
