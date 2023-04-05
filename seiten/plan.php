@@ -1,61 +1,69 @@
-<table class="plan">
-    <thead>
-        <tr>
-            <th></th>
-            <th>Montag</th>
-            <th>Dienstag</th>
-            <th>Mittwoch</th>
-            <th>Donnerstag</th>
-            <th>Freitag</th>
-            <th>Samstag</th>
-            <th>Sonntag</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <th>
-                <div class="td-icon">
-                    <span class="text">Morgens</span>
-                    <img class="icon" src="images/icons/morgens.svg" />
+<div class="plan">
+    <div></div>
+    <div class="time morning" title="Morgens">
+        <span class="text">Morgens</span>
+        <img class="icon" src="images/icons/morgens.svg" />
+    </div>
+    <div class="time dinner" title="Mittags">
+        <span class="text">Mittags</span>
+        <img class="icon" src="images/icons/mittags.svg" />
+    </div>
+    <div class="time evening" title="Abends">
+        <span class="text">Abends</span>
+        <img class="icon" src="images/icons/abends.svg" />
+    </div>
+    <?php
+        // Baue struktur
+        $days = [
+            "monday" => "Montag",
+            "tuesday" => "Dienstag",
+            "wednesday" => "Mittwoch",
+            "thursday" => "Donnerstag",
+            "friday" => "Freitag",
+            "saturday" => "Samstag",
+            "sunday" => "Sonntag"
+        ];
+        $currentDay = date('l');
+        $times = [
+            "morning" => [
+                "Morgens",
+                "images/icons/morgens.svg"
+            ],
+            "dinner" =>  [
+                "Mittags",
+                "images/icons/mittags.svg"
+            ],
+            "evening" =>  [
+                "Abends",
+                "images/icons/abends.svg"
+            ]
+        ];
+
+        foreach ($days as $id => $name) {
+            $class = null;
+
+            if (strtolower($currentDay) === $id) {
+                $class = "current";
+            }
+
+            ?>
+                <div class="day <?php echo $id; ?> header <?php echo $class ?? ""; ?>" title="<?php echo $name; ?>">
+                    <?php echo $name; ?>
                 </div>
-            </th>
-            <td>Aspirin 20g</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <th>
-                <div class="td-icon">
-                    <span class="text">Mittags</span>
-                    <img class="icon" src="images/icons/mittags.svg" />
-                </div>
-            </th>
-            <td></td>
-            <td>Insulin 20g</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <th>
-                <div class="td-icon">
-                    <span class="text">Abends</span>
-                    <img class="icon" src="images/icons/abends.svg" />
-                </div>
-            </th>
-            <td>Kodein 5g</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>E20 Sprit 90ml</td>
-            <td></td>
-        </tr>
-    </tbody>
-</table>
+            <?php
+
+            foreach ($times as $time => $data) {
+                ?>
+                    <div class="day <?php echo $id." ".$time; ?>" title="<?php echo $data[0]; ?>">
+                        <div class="time">
+                            <span class="text"><?php echo $data[0]; ?></span>
+                            <img class="icon" src="<?php echo $data[1]; ?>" />
+                        </div>
+                        <div class="medications"></div>
+                    </div>
+                <?php
+            } 
+        };
+
+    ?>
+</div>

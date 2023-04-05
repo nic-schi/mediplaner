@@ -25,3 +25,14 @@ footer .social-media a.link img {
 	width: 20px;
 	height: auto;
 }
+
+@media only screen and (max-width: 500px) {
+	footer {
+		flex-wrap: wrap;
+		gap: 0.5rem;
+		padding: 0.5rem 2rem;
+	}
+	footer .social-media {
+		flex: 100% 1 1;
+	}
+}

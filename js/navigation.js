@@ -25,12 +25,13 @@ const route = (pfad, datei, titel) => {
 const toggleNavItems = (status) => {
     let hamburger = document.getElementById("hamburger");
     let hDisplay = getStyle(hamburger, "display");
-    if (
-        hDisplay !== "none"
-    ) {
+    if (hDisplay !== "none") {
         let navItems = document.getElementById("navitems");
                 
-        if (status === "hide" || navItems.classList.contains("responsive")) {
+        if (
+            status === "hide" || 
+            navItems.classList.contains("responsive")
+        ) {
             navItems.classList.remove("responsive");
         } else {
             navItems.classList.add("responsive");
@@ -71,6 +72,7 @@ const router = async () => {
 
     if (route != undefined) {
         showLoader();
+        toggleNavItems("hide");
 
         let response = await fetch("seiten/" + route.datei);
         if (response.status === 200) {
@@ -81,11 +83,10 @@ const router = async () => {
             let text = await response.text();
             app.innerHTML = text;
 
-            toggleNavItems("hide");
             hideLoader();
         }
     }
-    console.log(url, routes, route)
+    console.log("page: " + url);
 } 
 
 // Events
@@ -101,3 +102,10 @@ window.addEventListener("load", (event) => {
     document.getElementById("/impressum").addEventListener("click", () => activateNavitem("/impressum"));
 });
 window.addEventListener("load", router);
+
+document.addEventListener("click", (event) => {
+    let clickedOutside = typeof event.composedPath === 'function' &&  !event.composedPath().includes(document.getElementById("nav"));
+    if (clickedOutside) {
+        toggleNavItems("hide");
+    }
+});

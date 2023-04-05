@@ -80,8 +80,11 @@ nav #hamburger {
 	}
 	nav .logo-container {
 		flex: auto 1 1;
-		align-items: flex-start;
 		justify-content: flex-start;
+	}
+	nav .logo-container .name {
+		padding-top: 0;
+		padding-bottom: 0;
 	}
 	nav #hamburger {
 		display: flex;
@@ -91,7 +94,8 @@ nav #hamburger {
 	}
 	nav .items.responsive {
 		display: flex;
-		position: absolute;
+		flex: 100% 1 1;
+		margin: 0 -2rem;
 		top: 100%;
 		right: 0%;
 		width: 100%;
@@ -105,5 +109,8 @@ nav #hamburger {
 		justify-content: flex-start;
 		border-radius: unset !important;
 		padding: 0.75rem 1.5rem;
+	}
+	:root {
+		--logo: 35px;
 	}
 }	
