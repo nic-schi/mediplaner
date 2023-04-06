@@ -1,4 +1,4 @@
-<div id="startpage">
+<div class="container">
     <h1>Willkommen beim Mediplaner!</h1>
 
     <hr />

@@ -30,9 +30,13 @@ img.icon {
 }
 
 h1, h2 {
+    text-decoration: none;
+    font-weight: 400;
     margin-bottom: 0.75rem;
 }
 h3, h4, h5, h6 {
+    text-decoration: none;
+    font-weight: 400;
     margin-bottom: 0.5rem;
 }
 
@@ -41,13 +45,13 @@ img.icon {
     color: var(--style-color);
 }
 
-#startpage {
-    max-width: 700px;
-    margin: auto;
-}
-
 hr {
     margin: 1.25rem 0;
-    background-color: none;
-    border: 1px solid rgba(0, 0, 0, 0.18);
+    border: none;
+    border-top: 1px solid var(--hr-color);
+}
+
+.container {
+    max-width: 700px;
+    margin: auto;
 }

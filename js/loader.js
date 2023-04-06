@@ -6,7 +6,7 @@ window.addEventListener("load", () => {
 /**
  * Zeigt den Loader an
  */
-const showLoader = () => {
+function showLoader() {
     loader.classList.add("show");
     loader.classList.remove("animateHide");
 }
@@ -14,6 +14,6 @@ const showLoader = () => {
 /**
  * Versteckt den Loader
  */
-const hideLoader = () => {
+function hideLoader() {
     loader.classList.add("animateHide");
 }

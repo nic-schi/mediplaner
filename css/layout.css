@@ -9,13 +9,13 @@ div.wrapper {
 }
 
 nav {
-	grid-area: "nav";
+	grid-area: nav;
 }
 main {
     padding: 1.5rem 1rem;
 	position: relative;
-	grid-area: "main";
+	grid-area: main;
 }
 footer {
-	grid-area: "footer";
+	grid-area: footer;
 }

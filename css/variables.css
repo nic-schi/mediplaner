@@ -1,11 +1,17 @@
 :root {
 	/** Sizes **/
 	--logo: 55px;
+	--nav-icons: 45px;
 
 	/** Colors **/
 	--bg-color: #FFFDFA;
-	--text-color: #131313;
+	--text-color: #2d2d2d;
 	--style-color: #1D58E9;
+	--hr-color: #babec2;
+	--good: rgb(0, 128, 0);
+	--bad: rgb(255, 0, 0);
+	--good-alpha: rgba(0, 128, 0, 0.2);
+	--bad-alpha: rgba(255, 0, 0, 0.2);
 	
 	/* Nav */
 	--nav-bg-color: #F6F7F8;
@@ -18,4 +24,11 @@
 	--footer-bg-color: #F6F7F8;
 	--footer-border-color: #c9c9c9;
 	--footer-text-color: #464646;
+
+	/* Formular */
+	--input-bg-color: var(--nav-bg-color);
+	--input-border-color: var(--hr-color);
+	--input-focus-color: rgba(29, 88, 233, 0.3);
+	--button-bg-color: var(--nav-bg-color);
+	--button-hover-color: #e7e9eb;
 }

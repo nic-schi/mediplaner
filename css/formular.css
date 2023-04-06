@@ -1,0 +1,114 @@
+/* Input-Felder */
+form .input-group {
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+form .input-group input, 
+form .input-group textarea {
+    padding: 1.7rem 0.65rem 0.625rem 0.75rem;
+    display: block;
+    width: 100%;
+    font-size: 1rem;
+    border: 1px solid var(--input-border-color);
+    background-color: var(--input-bg-color);
+    border-radius: 0.25rem;
+
+    transition: box-shadow 100ms ease-in-out;
+}
+
+form .input-group input:focus,
+form .input-group textarea:focus {
+    box-shadow: 0 0 0 .15rem var(--input-focus-color);
+    outline: none;
+}
+form .input-group input.valid,
+form .input-group textarea.valid {
+    outline: 1px solid var(--good);
+}
+form .input-group input.valid:focus,
+form .input-group textarea.valid:focus {
+    box-shadow: 0 0 0 .15rem var(--good-alpha);
+}
+form .input-group input.invalid,
+form .input-group textarea.invalid {
+    outline: 1px solid var(--bad);
+}
+form .input-group input.invalid:focus,
+form .input-group textarea.invalid:focus {
+    box-shadow: 0 0 0 .15rem var(--bad-alpha);
+}
+
+form .input-group input::placeholder,
+form .input-group textarea::placeholder {
+    color: transparent;
+}
+
+form .input-group input:focus ~ label, 
+form .input-group textarea:focus ~ label,
+form .input-group input:not(:placeholder-shown) ~ label,
+form .input-group textarea:not(:placeholder-shown) ~ label {
+    opacity: 0.7;
+    pointer-events: none;
+    top: 0.55rem;
+    font-size: 10pt;
+}
+
+form .input-group label {
+    position: absolute;
+    left: 0.75rem;
+    top: calc(1.15rem + 2px);
+    transition: opacity 100ms ease-in-out, top 100ms ease-in-out, font-size 100ms ease-in-out;
+}
+
+/* Knöpfe */
+button {
+    font-size: 12pt;
+    cursor: pointer;
+    border-radius: 0.25rem;
+    padding: 0.65rem 1.5rem;
+    border: 1px solid var(--input-border-color);
+    background-color: var(--button-bg-color);
+    
+    transition: box-shadow 100ms ease-in-out, background-color 100ms ease-in-out;
+}
+button:hover,
+button:focus {
+    background-color: var(--button-hover-color);
+}
+button:focus {
+    box-shadow: 0 0 0 .15rem var(--input-focus-color);
+}
+form button {
+    display: block;
+    margin-top: 1.25rem;
+}
+
+/* Feedback */
+.feedback {
+    display: flex;
+    margin: 0.5rem 0;
+    flex-direction: column;
+}
+.feedback:empty {
+    display: none;
+    margin: 0;
+}
+.feedback > div:not(:first-child) {
+    margin-top: 0.35rem;
+}
+.feedback > div {
+    padding: 0.5rem 1rem;
+    background-color: rgb(230, 230, 230);
+    border: 1px solid rgb(171, 171, 171);
+    border-left: 4px solid black;
+}
+
+.feedback > div.invalid {
+    border-left-color: var(--bad);
+    background-color: var(--bad-alpha);
+}
+.feedback > div.valid {
+    border-left-color: var(--good);
+    background-color: var(--good-alpha);
+}

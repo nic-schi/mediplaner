@@ -15,7 +15,7 @@ footer .text {
 }
 
 footer .social-media {
-	flex: 15% 1 1;
+	flex: 35% 0 1;
 }
 footer .social-media a.link {
 	padding: 0 0.2rem;
@@ -26,7 +26,7 @@ footer .social-media a.link img {
 	height: auto;
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 550px) {
 	footer {
 		flex-wrap: wrap;
 		gap: 0.5rem;

@@ -18,14 +18,17 @@
     <link rel="stylesheet" type="text/css" href="css/variables.css" />
     <link rel="stylesheet" type="text/css" href="css/layout.css" />
     <link rel="stylesheet" type="text/css" href="css/nav.css" />
+    <link rel="stylesheet" type="text/css" href="css/formular.css" />
     <link rel="stylesheet" type="text/css" href="css/footer.css" />
     <link rel="stylesheet" type="text/css" href="css/loader.css" />
     <link rel="stylesheet" type="text/css" href="css/plan.css" />
 
     <!-- Javascript -->
     <script language="javascript" type="text/javascript" src="js/functionalitys.js"></script>
+    <script language="javascript" type="text/javascript" src="js/checkLogin.js"></script>
     <script language="javascript" type="text/javascript" src="js/loader.js"></script>
     <script language="javascript" type="text/javascript" src="js/navigation.js"></script>
+    <script language="javascript" type="text/javascript" src="js/feedback.js"></script>
 </head>
 <body>
 <div class="wrapper">
@@ -37,15 +40,62 @@
 
         <img id="hamburger" src="images/icons/hamburger.svg" />
 
-        <div class="items" id="navitems">
+        <div class="navitems" title="Startseite" id="navitems">
             <a href="#" id="/" class="item">
-                Startseite
+                <svg version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+                    viewBox="0 0 512 512"  xml:space="preserve">
+                    <polygon class="st0" points="434.162,293.382 434.162,493.862 308.321,493.862 308.321,368.583 203.682,368.583 203.682,493.862 
+                        77.841,493.862 77.841,293.382 256.002,153.862 	"/>
+                    <polygon class="st0" points="0,242.682 256,38.93 512,242.682 482.21,285.764 256,105.722 29.79,285.764 	"/>
+                    <polygon class="st0" points="439.853,18.138 439.853,148.538 376.573,98.138 376.573,18.138 	"/>
+                </svg>
+                <span>Startseite</span>
             </a>
-            <a href="#plan" id="/plan" class="item">
-                Mein Plan
+            <a href="#plan" title="Mein Plan" id="/plan" class="item">
+                <svg version="1.0" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+                    viewBox="0 0 64 64" enable-background="new 0 0 64 64" xml:space="preserve">
+                    <path d="M60,4h-7V3c0-1.657-1.343-3-3-3s-3,1.343-3,3v1H17V3c0-1.657-1.343-3-3-3s-3,1.343-3,3v1H4
+                        C1.789,4,0,5.789,0,8v52c0,2.211,1.789,4,4,4h56c2.211,0,4-1.789,4-4V8C64,5.789,62.211,4,60,4z M18,53c0,0.553-0.447,1-1,1h-6
+                        c-0.553,0-1-0.447-1-1v-5c0-0.553,0.447-1,1-1h6c0.553,0,1,0.447,1,1V53z M18,42c0,0.553-0.447,1-1,1h-6c-0.553,0-1-0.447-1-1v-5
+                        c0-0.553,0.447-1,1-1h6c0.553,0,1,0.447,1,1V42z M18,31c0,0.553-0.447,1-1,1h-6c-0.553,0-1-0.447-1-1v-5c0-0.553,0.447-1,1-1h6
+                        c0.553,0,1,0.447,1,1V31z M30,53c0,0.553-0.447,1-1,1h-6c-0.553,0-1-0.447-1-1v-5c0-0.553,0.447-1,1-1h6c0.553,0,1,0.447,1,1V53z
+                        M30,42c0,0.553-0.447,1-1,1h-6c-0.553,0-1-0.447-1-1v-5c0-0.553,0.447-1,1-1h6c0.553,0,1,0.447,1,1V42z M30,31
+                        c0,0.553-0.447,1-1,1h-6c-0.553,0-1-0.447-1-1v-5c0-0.553,0.447-1,1-1h6c0.553,0,1,0.447,1,1V31z M42,53c0,0.553-0.447,1-1,1h-6
+                        c-0.553,0-1-0.447-1-1v-5c0-0.553,0.447-1,1-1h6c0.553,0,1,0.447,1,1V53z M42,42c0,0.553-0.447,1-1,1h-6c-0.553,0-1-0.447-1-1v-5
+                        c0-0.553,0.447-1,1-1h6c0.553,0,1,0.447,1,1V42z M42,31c0,0.553-0.447,1-1,1h-6c-0.553,0-1-0.447-1-1v-5c0-0.553,0.447-1,1-1h6
+                        c0.553,0,1,0.447,1,1V31z M54,42c0,0.553-0.447,1-1,1h-6c-0.553,0-1-0.447-1-1v-5c0-0.553,0.447-1,1-1h6c0.553,0,1,0.447,1,1V42z
+                        M54,31c0,0.553-0.447,1-1,1h-6c-0.553,0-1-0.447-1-1v-5c0-0.553,0.447-1,1-1h6c0.553,0,1,0.447,1,1V31z M62,15H2V8
+                        c0-1.104,0.896-2,2-2h7v4c0,1.657,1.343,3,3,3s3-1.343,3-3V6h30v4c0,1.657,1.343,3,3,3s3-1.343,3-3V6h7c1.104,0,2,0.896,2,2V15z"/>
+                </svg>
+                <span>Mein Plan</span>
             </a>
-            <a href="#impressum" id="/impressum" class="item">
-                Impressum
+            <a href="#kontakt" title="Kontakt" id="/kontakt" class="item">
+                <svg viewBox="0 0 32 32" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;" version="1.1" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:serif="http://www.serif.com/" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <path d="M16,2c-7.727,0 -14,6.273 -14,14c0,7.727 6.273,14 14,14c7.727,0 14,-6.273 14,-14c-0,-7.727 -6.273,-14 -14,-14Zm-6.729,10.345l0.15,0.259l6.23,10.792l0.866,0.5c0,0 -0.861,-0.493 -0.861,-0.493l0.15,0.26c0.475,0.824 1.378,1.386 2.555,1.483c0.993,0.082 2.117,-0.184 3.119,-0.763c1.121,-0.647 2.118,-1.223 2.118,-1.223c0.478,-0.276 0.642,-0.887 0.366,-1.366l-2.077,-3.597c-0.276,-0.478 -0.888,-0.642 -1.366,-0.366l-0.866,0.5c0,-0 -3.846,-6.662 -3.846,-6.662c-0,0 0.866,-0.5 0.866,-0.5c0.478,-0.276 0.642,-0.888 0.366,-1.366l-2.077,-3.597c-0.276,-0.479 -0.888,-0.642 -1.366,-0.366c0,-0 -0.997,0.575 -2.118,1.223c-1.002,0.578 -1.795,1.419 -2.22,2.319c-0.505,1.068 -0.469,2.131 0.006,2.955l0.005,0.008Zm8.117,10.058l-6.39,-11.066c-0.177,-0.307 -0.118,-0.702 0.07,-1.1c0.267,-0.566 0.782,-1.079 1.412,-1.442c0,-0 1.252,-0.723 1.252,-0.723c0,-0 1.077,1.865 1.077,1.865c-0,0 -0.866,0.5 -0.866,0.5c-0.478,0.276 -0.642,0.888 -0.366,1.366l4.846,8.394c0.276,0.478 0.888,0.642 1.366,0.366l0.866,-0.5c0,-0 1.077,1.865 1.077,1.865c0,0 -1.252,0.723 -1.252,0.723c-0.63,0.364 -1.331,0.553 -1.955,0.502c-0.43,-0.035 -0.794,-0.176 -0.976,-0.47l-0.161,-0.28Z"/>
+                </svg>
+                <span>Kontakt</span>
+            </a>
+            <a href="#impressum" title="Impressum" id="/impressum" class="item">
+                <svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5 5h2v2H5V5Zm2 3H5v2h2V8Zm-2 3h2v2H5v-2Zm6-6H9v2h2V5ZM9 8h2v2H9V8Zm2 3H9v2h2v-2Z"/>
+                    <path fill-rule="evenodd" d="M2 19a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3h3a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H9v-3H7v3H2Zm1-2V3h10v14h-2v-1a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v1H3Zm13-2h-1v-2h1v2Zm0-4h-1V9h1v2Z"/>
+                </svg>
+                <span>Impressum</span>
+            </a>
+        </div>
+
+        <div class="navitems" title="Anmelden" id="loginitems">
+            <a href="#anmelden" id="/anmelden" class="item">
+                <svg viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12.219 26.156h6.094c1.156 0 2.125-0.406 2.875-1.188 0.75-0.75 1.219-1.75 1.219-2.875v-12.219c0-1.125-0.469-2.125-1.219-2.875s-1.75-1.188-2.875-1.188h-6.094v2.563h6.094c0.875 0 1.531 0.656 1.531 1.5v12.219c0 0.844-0.656 1.531-1.531 1.531h-6.094v2.531zM0 13.563v4.875c0 0.563 0.469 1.031 1.031 1.031h5.688v3.844c0 0.344 0.156 0.625 0.469 0.781 0.125 0.031 0.281 0.031 0.344 0.031 0.219 0 0.406-0.063 0.563-0.219l7.344-7.344c0.281-0.281 0.25-0.844 0-1.156l-7.344-7.313c-0.25-0.25-0.563-0.281-0.906-0.188-0.313 0.156-0.469 0.406-0.469 0.75v3.875h-5.688c-0.563 0-1.031 0.469-1.031 1.031z"></path>
+                </svg>
+                <span>Anmelden</span>
+            </a>
+            <a href="#registrieren" title="Registrieren" id="/registrieren" class="item">
+                <svg viewBox="0 -64 640 640" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M624 208h-64v-64c0-8.8-7.2-16-16-16h-32c-8.8 0-16 7.2-16 16v64h-64c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h64v64c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16v-64h64c8.8 0 16-7.2 16-16v-32c0-8.8-7.2-16-16-16zm-400 48c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4z"/>
+                </svg>
+                <span>Registrieren</span>
             </a>
         </div>
     </nav>  
