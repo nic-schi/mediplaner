@@ -41,6 +41,9 @@ nav .navitems .item:last-child {
 	border-top-right-radius: 12px;
 }
 
+nav .navitems .item.hidden {
+	display: none;
+}
 nav .navitems .item {
 	flex: auto 1 1;
 	padding: 0.75rem 1.25rem;
@@ -52,8 +55,8 @@ nav .navitems .item {
 	text-align: center;
 	transition: 0.15s ease-in-out;
 }
-nav .navitems .item:hover,
-nav .navitems .item.active {
+nav .navitems .item:not(.noeffects):hover,
+nav .navitems .item:not(.noeffects).active {
 	background-color: var(--nav-item-hover-style-color);
 	color: var(--nav-item-hover-text-color);
 }
@@ -84,6 +87,18 @@ nav .logo-container .name {
 	padding: 0.75rem;
 	letter-spacing: 0.05rem;
 	font-size: 17pt;
+}
+
+nav .navitems .item #profile-picture {
+	border-radius: 50%;
+	background-color: var(--style-color);
+	color: #fff;
+	border: 1px solid rgba(0,0,0,0.4);
+	width: 30px;
+	height: 30px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 nav #hamburger {

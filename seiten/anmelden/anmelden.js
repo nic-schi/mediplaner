@@ -1,6 +1,6 @@
 var form = document.getElementById("anmelden-formular");
 
-form.addEventListener("submit", (e) => {
+form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
     // Hole Felder
@@ -10,10 +10,6 @@ form.addEventListener("submit", (e) => {
 
     let email = emailFeld.value;
     let password = passwordFeld.value;
-
-    // Anmeldedaten
-    let realEmail = "nichlas@email.de";
-    let realPassword = "password";
 
     // Validierung
     clearFeedback(e.target);
@@ -38,11 +34,10 @@ form.addEventListener("submit", (e) => {
     if (!error) {
         // Validierung überlebt
         // Anmeldung prüfen
-        if (
-            password === realPassword &&
-            email === realEmail
-        ) {
+        if (await login(email, password)) {
             // Anmeldung erfolgreich
+            console.log("call resetNav");
+            resetNav();
             window.location.hash = '#plan';
         } else {
             // Anmeldung fehlgeschlagen
@@ -50,3 +45,29 @@ form.addEventListener("submit", (e) => {
         }
     }
 });
+
+/**
+ * Loggt den Benutzer ein.
+ * 
+ * @param {string} email Die E-Mail-Adresse des Benutzers 
+ * @param {string} password Das Passwort des Benutzers
+ * @returns Eingeloggt?
+ */
+async function login(email, password) {
+    let params = new URLSearchParams();
+    params.set("email", email);
+    params.set("password", password);
+
+    let response = await fetch("backend/user/login-user.php?" + params.toString(), {
+        method: "GET"
+    });
+    
+    if (response.status === 200) {
+        let user = await response.json();
+        setCurrentUser(JSON.stringify(user));
+
+        return true;
+    }
+
+    return false;
+}

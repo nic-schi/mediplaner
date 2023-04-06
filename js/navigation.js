@@ -6,13 +6,20 @@ const routes = [];
  * @param {string} path Der Pfad der Route
  * @param {string} folder Der Pfad des Ordners
  * @param {string} title Der Titel der Seite
+ * @param {boolean} auth Gibt an mit welcher Berechtigung die Seite besucht werden darf. true=Nur Authentifiziert;false=Nur Unauthentifiziert;undefined=Beides
  */
-const route = (path, folder, title) => {
-    document.getElementById(path).addEventListener("click", () => activateNavitem(path));
+function route(path, folder, title, auth) {
+    let navitem = document.getElementById(path);
+    
+    if (!navitem.classList.contains("noeffects")) {
+        navitem.addEventListener("click", () => activateNavitem(path));
+    }
+
     routes.push({
         "path": path,
         "folder": folder,
-        "title": title
+        "title": title,
+        "auth": auth
     });
 }
 
@@ -23,7 +30,7 @@ const route = (path, folder, title) => {
  * 
  * @param {string} status hide oder show
  */
-const toggleNavItems = (status) => {
+function toggleNavItems(status) {
     let hamburger = document.getElementById("hamburger");
     let hDisplay = getStyle(hamburger, "display");
 
@@ -46,7 +53,7 @@ const toggleNavItems = (status) => {
 /**
  * Entfernt die Active-Klassen der Navigationsitems.
  */
-const clearNavItems = () => {
+function clearNavItems() {
     let navItems = [...document.getElementsByClassName("navitems")];
     navItems.forEach(item => {
         [...item.children].forEach(elem => {
@@ -60,7 +67,7 @@ const clearNavItems = () => {
  * 
  * @param {string} path Der Pfad der Datei
  */
-const activateNavitem = (path) => {
+function activateNavitem(path) {
     clearNavItems();
     
     // Setze die Active-Klasse für das Aktive Navitem
@@ -73,7 +80,7 @@ const activateNavitem = (path) => {
  * 
  * @param {string} type Der Typ der Datei [js, css]
  */
-const deletePageFile = (type) => {
+function deletePageFile(type) {
     let cssElem = document.getElementById("pageCSS");
     let jsElem = document.getElementById("pageJS");
 
@@ -84,7 +91,7 @@ const deletePageFile = (type) => {
 /**
  * Definiert den JavaScript-Router.
  */
-const router = async () => {
+async function router() {
     let app = document.getElementById("app");
     let url = ("/" + window.location.hash.slice(1)) || "/";
     let route = routes.find((item) => item.path === url);
@@ -130,16 +137,43 @@ const router = async () => {
     console.log("Seite " + url + " geladen!");
 } 
 
+/**
+ * Setzt die Navigation zurück und zeigt alle Items so an, wie es gewollt ist.
+ * Nutzt dazu die Authentifizikation.
+ */
+function resetNav() {
+    console.log("resetNav");
+    routes.forEach((route) => {
+        navitem = document.getElementById(route.path);
+
+        if (route.auth !== undefined) {
+            if (route.auth === isLoggedIn()) {
+                navitem.classList.remove("hidden");
+            } else {
+                navitem.classList.add("hidden");
+            }
+        }
+    });
+}
+
 // Events
 window.addEventListener("hashchange", router);
-window.addEventListener("load", (event) => {
+window.addEventListener("load", () => {
     // Registriere routen
-    route("/", "startseite", "Startseite");
-    route("/impressum", "impressum", "Impressum");
-    route("/plan", "plan", "Mein Plan");
-    route("/kontakt", "kontakt", "Kontakt");
-    route("/anmelden", "anmelden", "Anmelden");
-    route("/registrieren", "registrieren", "Registrieren");
+    route("/",              "startseite",   "Startseite");
+    route("/impressum",     "impressum",    "Impressum");
+    route("/plan",          "plan",         "Mein Plan",    true);
+    route("/kontakt",       "kontakt",      "Kontakt");
+    route("/anmelden",      "anmelden",     "Anmelden",     false);
+    route("/registrieren",  "registrieren", "Registrieren", false);
+    route("/abmelden",      "abmelden",     "Wird abgemeldet...",     true);
+    // Vorbeugende route
+    // wird nur platziert, damit in resetNav das Profilnavitem abgewickelt wird
+    route("/profil",        "profil",       "Profil",       true) 
+
+    // Verstecke/Zeige Navigationsitems an
+    // -> basiert auf Authentifizikation
+    resetNav();
 
     document.getElementById("hamburger").addEventListener("click", () => toggleNavItems());
 });

@@ -98,7 +98,7 @@ form button {
     margin-top: 0.35rem;
 }
 .feedback > div {
-    padding: 0.5rem 1rem;
+    padding: 0.65rem 1rem;
     background-color: rgb(230, 230, 230);
     border: 1px solid rgb(171, 171, 171);
     border-left: 4px solid black;

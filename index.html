@@ -25,7 +25,7 @@
 
     <!-- Javascript -->
     <script language="javascript" type="text/javascript" src="js/functionalitys.js"></script>
-    <script language="javascript" type="text/javascript" src="js/checkLogin.js"></script>
+    <script language="javascript" type="text/javascript" src="js/authentification.js"></script>
     <script language="javascript" type="text/javascript" src="js/loader.js"></script>
     <script language="javascript" type="text/javascript" src="js/navigation.js"></script>
     <script language="javascript" type="text/javascript" src="js/feedback.js"></script>
@@ -51,7 +51,7 @@
                 </svg>
                 <span>Startseite</span>
             </a>
-            <a href="#plan" title="Mein Plan" id="/plan" class="item">
+            <a href="#plan" title="Mein Plan" id="/plan" class="item hidden">
                 <svg version="1.0" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
                     viewBox="0 0 64 64" enable-background="new 0 0 64 64" xml:space="preserve">
                     <path d="M60,4h-7V3c0-1.657-1.343-3-3-3s-3,1.343-3,3v1H17V3c0-1.657-1.343-3-3-3s-3,1.343-3,3v1H4
@@ -84,14 +84,24 @@
             </a>
         </div>
 
-        <div class="navitems" title="Anmelden" id="loginitems">
-            <a href="#anmelden" id="/anmelden" class="item">
+        <div class="navitems" id="loginitems">
+            <a id ="/profil" class="item noeffects hidden">
+                <div id="profile-picture"></div>
+                <span id="username"></span>
+            </a>          
+            <a href="#abmelden" title="Abmelden" id="/abmelden" class="item hidden">
+                <svg viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0 9.875v12.219c0 1.125 0.469 2.125 1.219 2.906 0.75 0.75 1.719 1.156 2.844 1.156h6.125v-2.531h-6.125c-0.844 0-1.5-0.688-1.5-1.531v-12.219c0-0.844 0.656-1.5 1.5-1.5h6.125v-2.563h-6.125c-1.125 0-2.094 0.438-2.844 1.188-0.75 0.781-1.219 1.75-1.219 2.875zM6.719 13.563v4.875c0 0.563 0.5 1.031 1.063 1.031h5.656v3.844c0 0.344 0.188 0.625 0.5 0.781 0.125 0.031 0.25 0.031 0.313 0.031 0.219 0 0.406-0.063 0.563-0.219l7.344-7.344c0.344-0.281 0.313-0.844 0-1.156l-7.344-7.313c-0.438-0.469-1.375-0.188-1.375 0.563v3.875h-5.656c-0.563 0-1.063 0.469-1.063 1.031z"></path>
+                </svg>
+                <span>Abmelden</span>
+            </a>      
+            <a href="#anmelden" title="Anmelden" id="/anmelden" class="item hidden">
                 <svg viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
                     <path d="M12.219 26.156h6.094c1.156 0 2.125-0.406 2.875-1.188 0.75-0.75 1.219-1.75 1.219-2.875v-12.219c0-1.125-0.469-2.125-1.219-2.875s-1.75-1.188-2.875-1.188h-6.094v2.563h6.094c0.875 0 1.531 0.656 1.531 1.5v12.219c0 0.844-0.656 1.531-1.531 1.531h-6.094v2.531zM0 13.563v4.875c0 0.563 0.469 1.031 1.031 1.031h5.688v3.844c0 0.344 0.156 0.625 0.469 0.781 0.125 0.031 0.281 0.031 0.344 0.031 0.219 0 0.406-0.063 0.563-0.219l7.344-7.344c0.281-0.281 0.25-0.844 0-1.156l-7.344-7.313c-0.25-0.25-0.563-0.281-0.906-0.188-0.313 0.156-0.469 0.406-0.469 0.75v3.875h-5.688c-0.563 0-1.031 0.469-1.031 1.031z"></path>
                 </svg>
                 <span>Anmelden</span>
             </a>
-            <a href="#registrieren" title="Registrieren" id="/registrieren" class="item">
+            <a href="#registrieren" title="Registrieren" id="/registrieren" class="item hidden">
                 <svg viewBox="0 -64 640 640" xmlns="http://www.w3.org/2000/svg">
                     <path d="M624 208h-64v-64c0-8.8-7.2-16-16-16h-32c-8.8 0-16 7.2-16 16v64h-64c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h64v64c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16v-64h64c8.8 0 16-7.2 16-16v-32c0-8.8-7.2-16-16-16zm-400 48c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4z"/>
                 </svg>
