@@ -1,4 +1,3 @@
-
 showLoader();
 removeCurrentUser();
 resetNav();

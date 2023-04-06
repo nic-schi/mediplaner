@@ -26,7 +26,7 @@ function placeUserName() {
  */
 function setCurrentUser(user) {
     currentUser = user;
-    localStorage.setItem("currentUser", user)
+    localStorage.setItem("currentUser", JSON.stringify(user));
 }
 
 /**

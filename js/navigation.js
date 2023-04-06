@@ -99,6 +99,17 @@ async function router() {
     if (route != undefined) {
         showLoader();
         toggleNavItems("hide");
+
+        // Prüfe Authentifizikation
+        if (route.auth !== undefined) {
+            if (
+                (route.auth && !isLoggedIn()) ||
+                (!route.auth && isLoggedIn())
+            ) {
+                window.location.hash = "#";
+                return;
+            }
+        }
         
         let folder = "seiten/" + route.folder + "/";
         let jsFile = folder + route.folder + ".js";

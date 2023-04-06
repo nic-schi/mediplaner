@@ -36,8 +36,8 @@ form.addEventListener("submit", async (e) => {
         // Anmeldung prüfen
         if (await login(email, password)) {
             // Anmeldung erfolgreich
-            console.log("call resetNav");
             resetNav();
+            placeUserName();
             window.location.hash = '#plan';
         } else {
             // Anmeldung fehlgeschlagen
@@ -64,7 +64,9 @@ async function login(email, password) {
     
     if (response.status === 200) {
         let user = await response.json();
-        setCurrentUser(JSON.stringify(user));
+        
+        setCurrentUser(user);
+        placeUserName();
 
         return true;
     }
