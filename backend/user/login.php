@@ -33,7 +33,8 @@ if (
         $token = bin2hex(openssl_random_pseudo_bytes(64));
         $user["token"] = $token;
 
-        // Speicher Benutzer in Session
+        // Speicher Benutzer in der Session
+        unset($_SESSION["user"]);
         unset($user["password"]);
         $user = (object) $user;
         $_SESSION["user"] = $user;

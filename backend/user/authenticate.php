@@ -1,22 +1,19 @@
 <?php
 
-    require "../API.php";
+require "../API.php";
 
-    $API->auth();
+$API->auth();
 
-    $token = $_POST["token"] ?? null;
-    $user = $_SESSION["user"] ?? null;
+$token = $_POST["token"];
+$user = $_SESSION["user"];
 
-    if (
-        isset($token) &&
-        !empty($token) &&
-        isset($user) &&
-        !empty($user) &&
-        $token === $user->token
-    ) {
-        
-        
-        unset($user->password);
-        $API->print($user, 200);
-    }
+if (
+    isset($token) &&
+    !empty($token) &&
+    $token === $user->token
+) {
+    unset($user->password);
+    $API->print($user, 200);
+}
+
 ?>

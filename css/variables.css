@@ -12,6 +12,8 @@
 	--bad: rgb(255, 0, 0);
 	--good-alpha: rgba(0, 128, 0, 0.2);
 	--bad-alpha: rgba(255, 0, 0, 0.2);
+	--good-akzent: rgba(0, 128, 0, 0.35);
+	--bad-akzent: rgba(255, 0, 0, 0.35);
 	
 	/* Nav */
 	--nav-bg-color: #F6F7F8;

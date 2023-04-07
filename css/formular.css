@@ -66,11 +66,13 @@ button {
     font-size: 12pt;
     cursor: pointer;
     border-radius: 0.25rem;
-    padding: 0.65rem 1.5rem;
+    padding: 0.65rem 1rem;
     border: 1px solid var(--input-border-color);
     background-color: var(--button-bg-color);
-    
     transition: box-shadow 100ms ease-in-out, background-color 100ms ease-in-out;
+}
+button.small {
+    padding: 0.5rem;
 }
 button:hover,
 button:focus {
@@ -82,6 +84,28 @@ button:focus {
 form button {
     display: block;
     margin-top: 1.25rem;
+}
+button.bad {
+    background-color: var(--bad-alpha);
+    border-color: var(--bad);
+}
+button.bad:hover,
+button.bad:focus {
+    background-color: var(--bad-akzent);
+}
+button.bad:focus {
+    box-shadow: 0 0 0 .15rem var(--bad-akzent);
+}
+button.good {
+    background-color: var(--good-alpha);
+    border-color: var(--good);
+}
+button.good:hover,
+button.good:focus {
+    background-color: var(--good-akzent);
+}
+button.good:focus {
+    box-shadow: 0 0 0 .15rem var(--good-akzent);
 }
 
 /* Feedback */

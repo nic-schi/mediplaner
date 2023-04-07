@@ -27,7 +27,9 @@ class API {
     }
 
     function print($objekt, $status=200, $die=true) {
-        echo json_encode($objekt);
+        if ($objekt !== null) {
+            echo json_encode($objekt);
+        }
         http_response_code($status);
         if ($die) {
             die();

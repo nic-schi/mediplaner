@@ -1,0 +1,18 @@
+.confirm-container {
+    display: none;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+.confirm-container .text {
+    align-items: center;
+    flex: auto 1 1;
+}
+.confirm-container .buttons {
+    flex: auto 1 1;
+    display: flex;
+    gap: 0.5rem;
+}
+.confirm-container button {
+    margin: 0;
+}

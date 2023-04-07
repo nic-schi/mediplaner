@@ -5,7 +5,7 @@
 
     <form id="anmelden-formular">
         <div class="input-group">
-            <input id="email" name="email" placeholder="E-Mail-Adresse" value="nichlas@email.de" type="text" />
+            <input id="email" name="email" placeholder="E-Mail-Adresse" value="testuser@email.de" type="text" />
             <label for="email">E-Mail-Adresse</label>
             <div class="feedback"></div>
         </div>
