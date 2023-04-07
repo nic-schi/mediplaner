@@ -1,7 +1,7 @@
 /**
  * Zeigt einen Loader an
  * 
- * @param {string} id 
+ * @param {string} id Die ID des Loaders
  */
 function showLoader(id) {
     let loader = document.getElementById(id);
@@ -13,9 +13,9 @@ function showLoader(id) {
 }
 
 /**
- * Versteckt den Loader
+ * Versteckt einen Loader
  * 
- * @param {string} id 
+ * @param {string} id Die ID des Loaders
  */
 function hideLoader(id) {
     let loader = document.getElementById(id);

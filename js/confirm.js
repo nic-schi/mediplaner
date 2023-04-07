@@ -1,4 +1,11 @@
 
+/**
+ * Fügt ein Confirm-Handler hinzu.
+ * Dieser fügt sämtliche Click-Handler hinzu und übernimmt die Verwaltung des Confirm-Wrappers.
+ * 
+ * @param {string} confirmWrapperID ID des Wrapper-Elementes 
+ * @param {function} onConfirm Funktion, welche nach dem user "confirm" gedrückt hat, aufgerufen wird 
+ */
 function addConfirm(confirmWrapperID, onConfirm) {
     let confirmWrapper = document.getElementById(confirmWrapperID);
     if (confirmWrapper) {

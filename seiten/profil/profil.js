@@ -6,21 +6,6 @@ if (isLoggedIn()) {
     emailFeld.value = currentUser.email;
 }
 
-/**
- * Löscht den Benutzeraccount des aktuellen angemeldeten Benutzers
- */
-async function deleteUserAccount() {
-    let data = new FormData();
-    data.append("token", currentUser.token);
-
-    let response = await fetch("backend/user/delete.php", {
-        method: "POST",
-        body: data
-    });
-
-    return response;
-}
-
 addConfirm("delete-acc-confirm", async () => {
     let formular = document.getElementById("profil-formular");
     clearFeedback(formular);

@@ -173,7 +173,7 @@ function resetNav() {
 
 /**
  * Registriert alle Routen die die Seite besitzt.
- * Eine Route repräsentiert eine Webseite
+ * Eine Route repräsentiert eine Webseite in der Website
  */
 function registerRoutes() {
     route("/",              "startseite",   "Startseite");

@@ -133,3 +133,18 @@ async function logout() {
 
     return response;
 }
+
+/**
+ * Löscht den Benutzeraccount des aktuellen angemeldeten Benutzers
+ */
+async function deleteUserAccount() {
+    let data = new FormData();
+    data.append("token", currentUser.token);
+
+    let response = await fetch("backend/user/delete.php", {
+        method: "POST",
+        body: data
+    });
+
+    return response;
+}
