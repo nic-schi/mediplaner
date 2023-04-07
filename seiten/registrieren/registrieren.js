@@ -56,35 +56,15 @@ form.addEventListener("submit", async (e) => {
         let response = await register(username, email, password);
         let data = await response.json();
 
-        if (response.status === 200) {
-            let user = data;
+        if (response.status === 201) {
+            setCurrentUser(data);
+            resetNav();
+            placeUserName();
+            window.location.hash = '#profil';
         } else {
-            let errors = data.errors;
-
-            if (errors["email.used"]) {
-                addFeedback(emailFeld, FeedbackType.INVALID, errors["email.used"].message);
+            if (data["email.used"]) {
+                addFeedback(emailFeld, FeedbackType.INVALID, data["email.used"].message);
             }
         }
     }
 });
-
-/**
- * Registriert einen neuen Benutzer
- * 
- * @param {string} username Benutzername
- * @param {string} email E-Mail-Adresse
- * @param {string} password Passwort
- * @returns Response
- */
-async function register(username, email, password) {
-    let data = new FormData();
-    data.append("username", username);
-    data.append("email", email);
-    data.append("password", password);
-
-    let response = await fetch("backend/user/register-user.php", {
-        method: "POST",
-        body: data
-    });
-    return response;
-}

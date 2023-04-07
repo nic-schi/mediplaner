@@ -85,9 +85,9 @@
         </div>
 
         <div class="navitems" id="loginitems">
-            <a id ="/profil" class="item noeffects hidden">
+            <a href="#profil" id ="/profil" class="item hidden">
                 <div id="profile-picture"></div>
-                <span id="username"></span>
+                <span id="username-text"></span>
             </a>          
             <a href="#abmelden" title="Abmelden" id="/abmelden" class="item hidden">
                 <svg viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
@@ -111,7 +111,7 @@
     </nav>  
     <main>
         <div id="app"></div>
-        <div id="loader" class="loader-container show">
+        <div id="page-loader" class="loader-container show">
             <div class="loader">
                 <div></div><div></div><div></div><div></div>
             </div>
@@ -140,6 +140,11 @@
             </a>            
         </div>
     </footer>
+    <div id="full-loader" class="loader-container show">
+        <div class="loader">
+            <div></div><div></div><div></div><div></div>
+        </div>
+    </div>
 </div>
 </body>
 </html>

@@ -1,21 +1,52 @@
 var currentUser = null;
 
-window.addEventListener("load", () => {
-    let user = localStorage.getItem("currentUser");
+window.addEventListener("load", async () => {
+    let token = localStorage.getItem("token");
+    registerRoutes();
 
-    if (user != null) {
-        let jsonuser = JSON.parse(user);
-        currentUser = jsonuser;
+    if (token != null) {
+        let response = await authenticate(token);
 
-        placeUserName();
+        if (response.status === 200) {
+            // Benutzerobjekt wird in currentUser abgespeichert
+            let user = await response.json();
+            currentUser = user;
+
+            resetNav();
+            placeUserName();
+        } else {
+            // Benutzer abmelden und token verwerfen
+            removeCurrentUser();
+            resetNav();
+            window.location.href = "#";
+        }
     }
+    hideLoader("full-loader");
+    router();
 });
+
+/**
+ * Authentifiziert den Benutzer und prüft somit, ob der token gültig ist
+ * 
+ * @param {string} token Der Token
+ */
+async function authenticate(token) {
+    let data = new FormData();
+    data.append("token", token);
+
+    let response = await fetch("backend/user/authenticate.php", {
+        method: "POST",
+        body: data
+    });
+
+    return response;
+}
 
 /**
  * Platziert den Usernamen und das Profile-Bild des aktuellen Benutzers.
  */
 function placeUserName() {
-    document.getElementById("username").innerText = currentUser.name;
+    document.getElementById("username-text").innerText = currentUser.name;
     document.getElementById("profile-picture").innerText = currentUser.name.substring(0,1).toUpperCase();
 }
 
@@ -26,7 +57,7 @@ function placeUserName() {
  */
 function setCurrentUser(user) {
     currentUser = user;
-    localStorage.setItem("currentUser", JSON.stringify(user));
+    localStorage.setItem("token", user.token);
 }
 
 /**
@@ -34,7 +65,7 @@ function setCurrentUser(user) {
  */
 function removeCurrentUser() {
     currentUser = null;
-    localStorage.removeItem("currentUser");
+    localStorage.removeItem("token");
 }
 
 /**
@@ -44,4 +75,61 @@ function removeCurrentUser() {
  */
 function isLoggedIn() {
     return currentUser !== null;
+}
+
+/**
+ * Registriert einen neuen Benutzer
+ * 
+ * @param {string} username Benutzername
+ * @param {string} email E-Mail-Adresse
+ * @param {string} password Passwort
+ * @returns Response
+ */
+async function register(username, email, password) {
+    let data = new FormData();
+    data.append("username", username);
+    data.append("email", email);
+    data.append("password", password);
+
+    let response = await fetch("backend/user/register.php", {
+        method: "POST",
+        body: data
+    });
+    
+    return response;
+}
+
+/**
+ * Loggt den Benutzer ein.
+ * 
+ * @param {string} email Die E-Mail-Adresse des Benutzers 
+ * @param {string} password Das Passwort des Benutzers
+ * @returns Response
+ */
+async function login(email, password) {
+    let data = new FormData();
+    data.append("email", email);
+    data.append("password", password);
+
+    let response = await fetch("backend/user/login.php", {
+        method: "POST",
+        body: data
+    });
+
+    return response;
+}
+
+/**
+ * Loggt den Benutzer aus.
+ */
+async function logout() {
+    let data = new FormData();
+    data.append("token", currentUser.token);
+
+    let response = await fetch("backend/user/logout.php", {
+        method: "POST",
+        body: data
+    });
+
+    return response;
 }

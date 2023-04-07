@@ -1,19 +1,26 @@
-let loader;
-window.addEventListener("load", () => {
-    loader = document.getElementById("loader");
-});
-
 /**
- * Zeigt den Loader an
+ * Zeigt einen Loader an
+ * 
+ * @param {string} id 
  */
-function showLoader() {
-    loader.classList.add("show");
-    loader.classList.remove("animateHide");
+function showLoader(id) {
+    let loader = document.getElementById(id);
+
+    if (loader) {
+        loader.classList.add("show");
+        loader.classList.remove("animateHide");
+    }
 }
 
 /**
  * Versteckt den Loader
+ * 
+ * @param {string} id 
  */
-function hideLoader() {
-    loader.classList.add("animateHide");
+function hideLoader(id) {
+    let loader = document.getElementById(id);
+
+    if (loader) {
+        loader.classList.add("animateHide");
+    }
 }

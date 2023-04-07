@@ -68,6 +68,7 @@ nav .navitems .item svg {
 	height: calc(var(--nav-icons) / 2);
 	fill: var(--style-color);
 	color: var(--style-color);
+	transition: fill 0.15s ease-in-out;
 }
 nav #loginitems {
 	margin-left: 0;

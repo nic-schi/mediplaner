@@ -1,5 +1,9 @@
-showLoader();
-removeCurrentUser();
-resetNav();
+(async() => {
+    let response = await logout();
 
-window.location.href = "#";
+    if (response.status === 204) {
+        removeCurrentUser();
+        resetNav();
+    }
+    window.location.href = "#";
+})();

@@ -38,39 +38,17 @@ form.addEventListener("submit", async (e) => {
         // Validierung überlebt
         // Anmeldung prüfen
         let response = await login(email, password);
+        let content = await response.json();
             
         // Anmeldung erfolgreich
         if (response.status === 200) {
-            let user = await response.json();
-            
-            setCurrentUser(user);
-            placeUserName();
+            setCurrentUser(content);
             resetNav();
             placeUserName();
-            window.location.hash = '#plan';
+            window.location.hash = '#profil';
         } else {
             // Anmeldung fehlgeschlagen
-            let errors = (await response.json()).errors;
-            addFeedback(e.target, FeedbackType.INVALID, errors["login"].message);
+            addFeedback(e.target, FeedbackType.INVALID, content["login"].message);
         }
     }
 });
-
-/**
- * Loggt den Benutzer ein.
- * 
- * @param {string} email Die E-Mail-Adresse des Benutzers 
- * @param {string} password Das Passwort des Benutzers
- * @returns Response
- */
-async function login(email, password) {
-    let params = new URLSearchParams();
-    params.set("email", email);
-    params.set("password", password);
-
-    let response = await fetch("backend/user/login-user.php?" + params.toString(), {
-        method: "GET"
-    });
-
-    return response;
-}

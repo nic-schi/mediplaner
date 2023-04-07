@@ -97,7 +97,7 @@ async function router() {
     let route = routes.find((item) => item.path === url);
 
     if (route != undefined) {
-        showLoader();
+        showLoader("page-loader");
         toggleNavItems("hide");
 
         // Prüfe Authentifizikation
@@ -126,7 +126,9 @@ async function router() {
         );
 
         // Lade PHP-Datei der Seite
-        let response = await fetch(folder + route.folder + ".php");
+        let response = await fetch(folder + route.folder + ".php", {
+            method: "GET"
+        });
 
         if (response.status === 200) {
             activateNavitem(route.path);
@@ -136,17 +138,20 @@ async function router() {
             let text = await response.text();
             app.innerHTML = text;
 
-            hideLoader();
-
             // Lade Javascript-Datei
             await loadJS(jsFile).then(
-                () => console.log(jsFile + " geladen!"),
+                () => {
+                    hideLoader("page-loader");
+                    console.log(jsFile + " geladen!")
+                },
                 () => deletePageFile("js")
             );
+        } else {
+            window.location.hash = "#";
         }
     }
     console.log("Seite " + url + " geladen!");
-} 
+}
 
 /**
  * Setzt die Navigation zurück und zeigt alle Items so an, wie es gewollt ist.
@@ -166,28 +171,30 @@ function resetNav() {
     });
 }
 
+/**
+ * Registriert alle Routen die die Seite besitzt.
+ * Eine Route repräsentiert eine Webseite
+ */
+function registerRoutes() {
+    route("/",              "startseite",   "Startseite");
+    route("/impressum",     "impressum",    "Impressum");
+    route("/plan",          "plan",         "Mein Plan",            true);
+    route("/kontakt",       "kontakt",      "Kontakt");
+    route("/anmelden",      "anmelden",     "Anmelden",             false);
+    route("/registrieren",  "registrieren", "Registrieren",         false);
+    route("/abmelden",      "abmelden",     "Wird abgemeldet...",   true);
+    route("/profil",        "profil",       "Profil",               true) 
+}
+
 // Events
 window.addEventListener("hashchange", router);
 window.addEventListener("load", () => {
-    // Registriere routen
-    route("/",              "startseite",   "Startseite");
-    route("/impressum",     "impressum",    "Impressum");
-    route("/plan",          "plan",         "Mein Plan",    true);
-    route("/kontakt",       "kontakt",      "Kontakt");
-    route("/anmelden",      "anmelden",     "Anmelden",     false);
-    route("/registrieren",  "registrieren", "Registrieren", false);
-    route("/abmelden",      "abmelden",     "Wird abgemeldet...",     true);
-    // Vorbeugende route
-    // wird nur platziert, damit in resetNav das Profilnavitem abgewickelt wird
-    route("/profil",        "profil",       "Profil",       true) 
-
     // Verstecke/Zeige Navigationsitems an
     // -> basiert auf Authentifizikation
     resetNav();
 
     document.getElementById("hamburger").addEventListener("click", () => toggleNavItems());
 });
-window.addEventListener("load", router);
 
 document.addEventListener("click", (event) => {
     let clickedOutside = typeof event.composedPath === 'function' &&  !event.composedPath().includes(document.getElementById("nav"));
