@@ -12,6 +12,10 @@
         <span class="text">Abends</span>
         <img class="icon" src="images/icons/abends.svg" />
     </div>
+    <div class="time night" title="Nachts">
+        <span class="text">Nachts</span>
+        <img class="icon" src="images/icons/nachts.svg" />
+    </div>
     <?php
         // Baue struktur
         $days = [
@@ -36,6 +40,10 @@
             "evening" =>  [
                 "Abends",
                 "images/icons/abends.svg"
+            ],
+            "night" =>  [
+                "Nachts",
+                "images/icons/nachts.svg"
             ]
         ];
 

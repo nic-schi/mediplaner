@@ -4,18 +4,20 @@
     width: auto;
     max-width: 1300px;
 
-    grid-template-rows: auto repeat(3, auto);
+    grid-template-rows: auto repeat(4, auto);
     grid-template-columns: auto repeat(7, 1fr);
 
     grid-template-areas: 
     ".              mondayH tuesdayH wednesdayH thursdayH fridayH saturdayH sundayH"
     "headerMorning  mondayM tuesdayM wednesdayM thursdayM fridayM saturdayM sundayM"
     "headerDinner   mondayD tuesdayD wednesdayD thursdayD fridayD saturdayD sundayD"
-    "headerEvening  mondayE tuesdayE wednesdayE thursdayE fridayE saturdayE sundayE";
+    "headerEvening  mondayE tuesdayE wednesdayE thursdayE fridayE saturdayE sundayE"
+    "headerNight    mondayN tuesdayN wednesdayN thursdayN fridayN saturdayN sundayN";
 }
 .plan > .morning, 
 .plan > .dinner, 
-.plan > .evening {
+.plan > .evening,
+.plan > .night {
     min-height: 100px;
 }
 .plan .day .time {
@@ -48,10 +50,10 @@
     position: relative;
     padding-left: 2rem;
 }
-.plan div:nth-child(n + 29) {
+.plan div:nth-child(n + 36) {
     border-right: none;
 }
-.plan div:nth-child(4n) {
+.plan div:nth-child(5n) {
     border-bottom: none;
 }
 
@@ -96,34 +98,42 @@
         "mondayM"
         "mondayD"
         "mondayE"
+        "mondayN"
         "tuesdayH"
         "tuesdayM"
         "tuesdayD"
         "tuesdayE"
+        "tuesdayN"
         "wednesdayH"
         "wednesdayM"
         "wednesdayD"
         "wednesdayE"
+        "wednesdayN"
         "thursdayH"
         "thursdayM"
         "thursdayD"
         "thursdayE"
+        "thursdayN"
         "fridayH"
         "fridayM"
         "fridayD"
         "fridayE"
+        "fridayN"
         "saturdayH"
         "saturdayM"
         "saturdayD"
         "saturdayE"
+        "saturdayN"
         "sundayH"
         "sundayM"
         "sundayD"
-        "sundayE";
+        "sundayE"
+        "sundayN";
     }
     .plan > .morning, 
     .plan > .dinner, 
-    .plan > .evening {
+    .plan > .evening,
+    .plan > .night {
         min-height: 70px;
         gap: 2rem;
     }
@@ -189,6 +199,9 @@
 .time.evening {
     grid-area: headerEvening;
 }
+.time.night {
+    grid-area: headerNight;
+}
 /* Montag */
 .monday.header {
     grid-area: mondayH;
@@ -201,6 +214,9 @@
 }
 .monday.evening {
     grid-area: mondayE;
+}
+.monday.night {
+    grid-area: mondayN;
 }
 /* Dienstag */
 .tuesday.header {
@@ -215,6 +231,9 @@
 .tuesday.evening {
     grid-area: tuesdayE;
 }
+.tuesday.night {
+    grid-area: tuesdayN;
+}
 /* Mittwoch */
 .wednesday.header {
     grid-area: wednesdayH;
@@ -227,6 +246,9 @@
 }
 .wednesday.evening {
     grid-area: wednesdayE;
+}
+.wednesday.night {
+    grid-area: wednesdayN;
 }
 /* Donnerstag */
 .thursday.header {
@@ -241,6 +263,9 @@
 .thursday.evening {
     grid-area: thursdayE;
 }
+.thursday.night {
+    grid-area: thursdayN;
+}
 /* Freitag */
 .friday.header {
     grid-area: fridayH;
@@ -253,6 +278,9 @@
 }
 .friday.evening {
     grid-area: fridayE;
+}
+.friday.night {
+    grid-area: fridayN;
 }
 /* Samstag */
 .saturday.header {
@@ -267,6 +295,9 @@
 .saturday.evening {
     grid-area: saturdayE;
 }
+.saturday.night {
+    grid-area: saturdayN;
+}
 /* Sonntag */
 .sunday.header {
     grid-area: sundayH;
@@ -279,4 +310,7 @@
 }
 .sunday.evening {
     grid-area: sundayE;
+}
+.sunday.night {
+    grid-area: sundayN;
 }
