@@ -17,31 +17,41 @@ form.addEventListener("submit", async (e) => {
 
     // Email leer
     if (email.length <= 0) {
+        error = true;
         addFeedback(emailFeld, FeedbackType.INVALID, "E-Mail-Adresse darf nicht leer sein!");
     } else {
         // Email üngültig anhand von regex-expression
         let emailValid = /\S+@\S+\.\S+/.test(email);
         if (!emailValid) {
+            error = true;
             addFeedback(emailFeld, FeedbackType.INVALID, "E-Mail-Adresse üngültig!");
         }   
     }
 
     // Password leer
     if (password.length <= 0) {
+        error = true;
         addFeedback(passwordFeld, FeedbackType.INVALID, "Password darf nicht leer sein!");
     }
 
     if (!error) {
         // Validierung überlebt
         // Anmeldung prüfen
-        if (await login(email, password)) {
-            // Anmeldung erfolgreich
+        let response = await login(email, password);
+            
+        // Anmeldung erfolgreich
+        if (response.status === 200) {
+            let user = await response.json();
+            
+            setCurrentUser(user);
+            placeUserName();
             resetNav();
             placeUserName();
             window.location.hash = '#plan';
         } else {
             // Anmeldung fehlgeschlagen
-            addFeedback(e.target, FeedbackType.INVALID, "Anmeldung fehlgeschlagen!");
+            let errors = (await response.json()).errors;
+            addFeedback(e.target, FeedbackType.INVALID, errors["login"].message);
         }
     }
 });
@@ -51,7 +61,7 @@ form.addEventListener("submit", async (e) => {
  * 
  * @param {string} email Die E-Mail-Adresse des Benutzers 
  * @param {string} password Das Passwort des Benutzers
- * @returns Eingeloggt?
+ * @returns Response
  */
 async function login(email, password) {
     let params = new URLSearchParams();
@@ -61,15 +71,6 @@ async function login(email, password) {
     let response = await fetch("backend/user/login-user.php?" + params.toString(), {
         method: "GET"
     });
-    
-    if (response.status === 200) {
-        let user = await response.json();
-        
-        setCurrentUser(user);
-        placeUserName();
 
-        return true;
-    }
-
-    return false;
+    return response;
 }

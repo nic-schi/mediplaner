@@ -2,13 +2,18 @@
     require "../error.php";
     header('Content-Type: application/json; charset=utf-8');
 
-    $error = new APIError("Anmeldung fehlgeschlagen!", 401);
+    $errors = new APIErrors();
 
     // Parameter
     $email = $_GET["email"] ?? null;
     $password = $_GET["password"] ?? null;
 
-    if (isset($email) && isset($password)) {
+    if (
+        isset($email) && 
+        isset($password) &&
+        !empty($email) &&
+        !empty($password)
+    ) {
         $foundUser = null;
         $files = array_diff(scandir("../../data/user"), [".", ".."]);
 
@@ -34,6 +39,8 @@
     }
 
     // print error
-    echo json_encode($error);
+    http_response_code(401);
+    $errors->add("login", "Anmeldung fehlgeschlagen!");
+    echo json_encode($errors);
 
 ?>

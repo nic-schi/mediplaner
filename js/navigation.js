@@ -153,7 +153,6 @@ async function router() {
  * Nutzt dazu die Authentifizikation.
  */
 function resetNav() {
-    console.log("resetNav");
     routes.forEach((route) => {
         navitem = document.getElementById(route.path);
 
