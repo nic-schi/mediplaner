@@ -1,0 +1,35 @@
+{
+    "owner": 1,
+    "updated-at": "12-03-2022 12:00",
+    "days": [
+        "monday",
+        "tuesday",
+        "wednesday",
+        "thursday",
+        "friday",
+        "saturday",
+        "sunday"
+    ],
+    "times": [
+        "morning",
+        "dinner",
+        "evening",
+        "night"
+    ],
+    "medications": [
+        {
+            "name": "Aspirin",
+            "amount": 20,
+            "unit": "ml",
+            "time": 1,
+            "day": 2
+        },
+        {
+            "name": "Mehl",
+            "amount": 100,
+            "unit": "g",
+            "time": 0,
+            "day": 3
+        }
+    ]
+}
