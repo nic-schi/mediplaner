@@ -44,8 +44,20 @@ class API {
         return count($this->errors)>0;
     }
 
+    function params($requiredParams) {
+        foreach ($requiredParams as $item) {
+            if (!isset($_POST[$item])) {
+                $this->addError("error", "Fehlende Anfrageparameter!");
+                $this->printErrors();
+                return;
+            }
+        }
+        return $_POST;
+    }
+
     function auth($die=true) {
-        $token = $_REQUEST["token"] ?? null;
+        $header = getallheaders();
+        $token = $header["auth"] ?? null;
         $user = $_SESSION["user"] ?? null;
 
         if (
@@ -55,30 +67,36 @@ class API {
             !empty($user) &&
             $token === $user->token
         ) {
-            $userFound = false;
-            $users = array_diff(scandir("../../data/user"), [".", ".."]);
-
-            foreach ($users as $file) {
-                $userRaw = file_get_contents("../../data/user/".$file);
-                $searchUser = json_decode($userRaw);
-
-                if (
-                    $searchUser->email === $user->email &&
-                    $searchUser->name === $user->name &&
-                    $searchUser->id === $user->id
-                ) {
-                    $userFound = true;
-                    break;
-                }
-            }
-
-            if ($userFound) {
+            if ($this->getUser($user->id) !== null) {
                 return;
             }
         }
+        
         session_destroy();
         $this->addError("auth", "Authentifizierung fehlgeschlagen!");
         $this->printErrors(401, $die);
+    }
+
+    function getFiles($folder) {
+        return array_diff(scandir($folder), [".", ".."]);
+    }
+
+    private function getObject($path, $id) {
+        $plans = $this->getFiles($path);
+
+        foreach ($plans as $file) {
+            $planRaw = file_get_contents($path."/".$file);
+            $plan = json_decode($planRaw);
+        
+            if ($plan->id === $id) {
+                return $plan;
+            }
+        }
+        return null;
+    }
+
+    function getUser($id) {
+        return $this->getObject("../../data/user", $id);
     }
 
 }

@@ -4,6 +4,8 @@ if (isLoggedIn()) {
 
     usernameFeld.value = currentUser.name;
     emailFeld.value = currentUser.email;
+    
+    hideLoader("page-loader");
 }
 
 addConfirm("delete-acc-confirm", async () => {

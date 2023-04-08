@@ -140,10 +140,7 @@ async function router() {
 
             // Lade Javascript-Datei
             await loadJS(jsFile).then(
-                () => {
-                    hideLoader("page-loader");
-                    console.log(jsFile + " geladen!")
-                },
+                () => console.log(jsFile + " geladen!"),
                 () => deletePageFile("js")
             );
         } else {

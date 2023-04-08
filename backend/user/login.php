@@ -13,7 +13,7 @@ if (
     !empty($password)
 ) {
     $foundUser = null;
-    $files = array_diff(scandir("../../data/user"), [".", ".."]);
+    $files = $API->getFiles("../../data/user");
 
     foreach ($files as $file) {
         $userRaw = file_get_contents("../../data/user/".$file);

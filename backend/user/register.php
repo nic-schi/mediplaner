@@ -20,7 +20,7 @@ if ($password == null || empty($password)) {
 }
 
 // E-Mail bereits vorhanden
-$users = array_diff(scandir("../../data/user"), [".", ".."]);
+$users = $API->getFiles("../../data/user");
 
 foreach ($users as $file) {
     $userRaw = file_get_contents("../../data/user/".$file);

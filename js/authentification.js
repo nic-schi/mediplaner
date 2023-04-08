@@ -26,17 +26,27 @@ window.addEventListener("load", async () => {
 });
 
 /**
+ * Gibt Header-Informationen mit einer Authentifizierung zurück, welche bei der Fetch-API eingesetzt werden kann
+ * 
+ * @param {HeadersInit} headers Header, wo die Authentifizierung hinzugefügt werden soll
+ * @returns Der Header mit der Authentifizierung
+ */
+function getAuthHeader(headers) {
+    let newHeaders = new Headers(headers);
+    let token = localStorage.getItem("token");
+    newHeaders.append("auth", token);
+    return newHeaders;
+}
+
+/**
  * Authentifiziert den Benutzer und prüft somit, ob der token gültig ist
  * 
  * @param {string} token Der Token
  */
 async function authenticate(token) {
-    let data = new FormData();
-    data.append("token", token);
-
     let response = await fetch("backend/user/authenticate.php", {
         method: "POST",
-        body: data
+        headers: getAuthHeader()
     });
 
     return response;
@@ -123,12 +133,9 @@ async function login(email, password) {
  * Loggt den Benutzer aus.
  */
 async function logout() {
-    let data = new FormData();
-    data.append("token", currentUser.token);
-
     let response = await fetch("backend/user/logout.php", {
         method: "POST",
-        body: data
+        headers: getAuthHeader()
     });
 
     return response;
@@ -138,12 +145,9 @@ async function logout() {
  * Löscht den Benutzeraccount des aktuellen angemeldeten Benutzers
  */
 async function deleteUserAccount() {
-    let data = new FormData();
-    data.append("token", currentUser.token);
-
     let response = await fetch("backend/user/delete.php", {
         method: "POST",
-        body: data
+        headers: getAuthHeader()
     });
 
     return response;

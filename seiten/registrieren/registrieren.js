@@ -1,4 +1,5 @@
 var form = document.getElementById("registrieren-formular");
+hideLoader("page-loader");
 
 form.addEventListener("submit", async (e) => {
     e.preventDefault();
