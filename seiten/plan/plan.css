@@ -76,6 +76,28 @@
     width: 30px;
 }
 
+.plan .day .medications {
+    display: flex;
+    width: 100%;
+    gap: 0.25rem;
+    flex-direction: column;
+}
+.plan .day .medications .medicament {
+    display: flex;
+    gap: 7px;
+    justify-content: center;
+    align-items: center;
+}
+.plan .day .medications .medicament > div {
+    flex: 50% 1 1;   
+}
+.plan .day .medications .medicament > div:first-child {
+    text-align: right;
+}
+.plan .day .medications .medicament > div:last-child {
+    text-align: left;
+}
+
 @media only screen and (max-width: 1050px)  {
     .plan > div {
         padding: 0.4rem;
@@ -141,7 +163,7 @@
         justify-content: flex-start;
         align-items: flex-start;
     }
-    .plan div:first-child {
+    .plan > div:first-child {
         display: none;
     }
     .plan .time {

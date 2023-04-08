@@ -1,4 +1,4 @@
-<div class="plan">
+<div id="plan" class="plan">
     <div></div>
     <div class="time morning" title="Morgens">
         <span class="text">Morgens</span>

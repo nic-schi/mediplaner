@@ -31,6 +31,20 @@
             "unit": "g",
             "time": 0,
             "day": 3
+        },
+        {
+            "name": "Eier",
+            "amount": 2,
+            "unit": "",
+            "time": 0,
+            "day": 3
+        },
+        {
+            "name": "Kodein",
+            "amount": 100,
+            "unit": "g",
+            "time": 2,
+            "day": 4
         }
     ]
 }
