@@ -62,6 +62,7 @@ form.addEventListener("submit", async (e) => {
             resetNav();
             placeUserName();
             window.location.hash = '#profil';
+            addMessage(MessageType.GOOD, "Willkommen!");
         } else {
             if (data["email.used"]) {
                 addFeedback(emailFeld, FeedbackType.INVALID, data["email.used"].message);

@@ -47,6 +47,7 @@ form.addEventListener("submit", async (e) => {
             resetNav();
             placeUserName();
             window.location.hash = '#profil';
+            addMessage(MessageType.GOOD, "Willkommen zurück!");
         } else {
             // Anmeldung fehlgeschlagen
             addFeedback(e.target, FeedbackType.INVALID, content["login"].message);
