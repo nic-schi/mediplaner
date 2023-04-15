@@ -1,5 +1,8 @@
 <div class='container'>
     <h1>Impressum</h1>
+
+    <hr />
+    
     <p>Angaben gemäß § 5 TMG</p>
     <p>Max Muster <br>
         Musterweg<br>

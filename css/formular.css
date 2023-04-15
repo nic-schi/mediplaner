@@ -4,6 +4,10 @@ form .input-group {
     position: relative;
 }
 
+textarea {
+    max-height: 500px;
+}
+
 form .input-group input, 
 form .input-group textarea {
     padding: 1.7rem 0.65rem 0.625rem 0.75rem;
