@@ -1,17 +1,14 @@
 <?php
 
 require "../API.php";
+
 $API->auth();
 $params = $API->params(["id"]);
+$user = $userDAO->getCurrent();
 
-$user = $_SESSION["user"];
+// Hole plan
+$plan = $planDAO->get($params["id"]);
+echo json_encode($plan);
 
-// Suche plan
-$plan = @file_get_contents("../../data/plan/plan-".$params["id"].".json");
-if ($plan) {
-    echo $plan;
-} else {
-    $API->print(null, 404);
-}
 
 ?>

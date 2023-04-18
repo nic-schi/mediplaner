@@ -22,11 +22,11 @@ class APIError {
 class API {
     public $errors = [];
 
-    function printErrors($status=401, $die=true) {
+    public function printErrors($status=401, $die=true) {
         $this->print($this->errors, $status, $die);
     }
 
-    function print($objekt, $status=200, $die=true) {
+    public function print($objekt, $status=200, $die=true) {
         if ($objekt !== null) {
             echo json_encode($objekt);
         }
@@ -45,13 +45,19 @@ class API {
     }
 
     function params($requiredParams) {
+        $missing = false;
         foreach ($requiredParams as $item) {
             if (!isset($_POST[$item])) {
-                $this->addError("error", "Fehlende Anfrageparameter!");
-                $this->printErrors();
-                return;
+                $this->addError($item.".missing", "Anfrageparameter ".$item." fehlt!");
+                $missing = true;
             }
         }
+
+        if ($missing) {
+            $this->printErrors();
+            return;
+        }
+        
         return $_POST;
     }
 
@@ -65,11 +71,9 @@ class API {
             !empty($token) &&
             isset($user) &&
             !empty($user) &&
-            $token === $user->token
+            $token === $user["token"]
         ) {
-            if ($this->getUser($user->id) !== null) {
-                return;
-            }
+            return;
         }
         
         session_destroy();
@@ -77,32 +81,18 @@ class API {
         $this->printErrors(401, $die);
     }
 
-    function getFiles($folder) {
-        return array_diff(scandir($folder), [".", ".."]);
+    public function getFiles($folder) {
+        return array_values(array_diff(scandir($folder), [".", ".."]));
     }
-
-    private function getObject($path, $id) {
-        $plans = $this->getFiles($path);
-
-        foreach ($plans as $file) {
-            $planRaw = file_get_contents($path."/".$file);
-            $plan = json_decode($planRaw);
-        
-            if ($plan->id === $id) {
-                return $plan;
-            }
-        }
-        return null;
-    }
-
-    function getUser($id) {
-        return $this->getObject("../../data/user", $id);
-    }
-
 }
 
 session_start();
 header('Content-Type: application/json; charset=utf-8');
+
 $API = new API();
+global $API;
+
+require "PlanDAO.php";
+require "UserDAO.php";
 
 ?>
