@@ -15,7 +15,7 @@
     background-color: var(--nav-bg-color);
     border: 1px solid var(--nav-border-color);
     border-left-width: 5px;
-    border-radius: 0 7px 7px 0;
+    border-radius: 7px;
     padding-right: 40px;
     max-width: 500px;
     animation: comeIn 300ms ease-in-out forwards;
