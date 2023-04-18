@@ -78,3 +78,10 @@
         top: 3rem;
     }
 }
+
+@media only screen and (max-width: 450px) {
+    #messages {
+        width: max-content;
+        max-width: 95vw;
+    }
+}
