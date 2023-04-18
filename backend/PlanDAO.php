@@ -2,25 +2,22 @@
 
 class PlanDAO {
 
-    public function get($id, $die=true): array|null {
-        $folder = "../../data/plan";
-        $plans = $GLOBALS["API"]->getFiles($folder);
-        $foundPlan = array_search("plan-".$id.".json", $plans);
-
-        if (!$foundPlan) {
-            $GLOBALS["API"]->addError("plan.not-found", "Plan wurde nicht gefunden!");
-            $GLOBALS["API"]->printErrors(404, $die);
-        }
-
-        $planPath = $folder."/".$plans[$foundPlan]; 
-        return json_decode(@file_get_contents($planPath), true);
+    public function get($id, $die=true): array {
+        $plans = $this->getAll();
+        $foundPlan = current(array_filter($plans, function($plan) use ($id) {
+            return $id == $plan["id"];
+        }));
+        return $foundPlan;
     }
 
     public function create($owner, $id=null): array {
         $newId = $id ?? $this->getNewID();
+        $currentTime = date("Y-m-d\TH:i:s");
         $plan = [
             "id" => $newId,
             "owner" => $owner,
+            "updated_at" => $currentTime,
+            "created_at" => $currentTime,
             "days" => [
                 "monday",
                 "tuesday",
@@ -54,7 +51,7 @@ class PlanDAO {
 
     private function getAll(): array {
         $plans = $GLOBALS["API"]->getFiles("../../data/plan");
-        array_walk($plans, function(&$value, $key) {
+        array_walk($plans, function(&$value) {
             $value = json_decode(@file_get_contents("../../data/plan/".$value), true);
         });
         return $plans;

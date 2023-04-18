@@ -3,14 +3,12 @@
 require "../API.php";
 
 $API->auth();
+
 $user = $_SESSION["user"];
+$deletedU = @unlink("../../data/user/user-".$user["id"].".json");
+$deletedP = @unlink("../../data/plan/plan-".$user["id"].".json");
 
-$filename = "user-".$user->id.".json";
-$folder = "../../data/user/";
-
-$deleted = unlink($folder.$filename);
-
-if ($deleted) {
+if ($deletedU && $deletedP) {
     session_destroy();
     $API->print(null, 204);
 }

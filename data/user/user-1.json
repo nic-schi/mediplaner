@@ -2,5 +2,7 @@
     "id": 1,
     "name": "Nichlas",
     "email": "testuser@email.de",
-    "password": "$2y$10$8EYCt\/ADVHiyzHCuAztsZ.Dm87jHib.bw2e7mkHoM6Y.vU1BtBCNm"
+    "password": "$2y$10$KyoDPrZmo52\/jvcZ0LqjGOVK41x8PJvWC2Cep0KUMNtgvgIHViViS",
+    "created_at": "2023-04-18T21:58:04",
+    "updated_at": "2023-04-18T21:58:04"
 }

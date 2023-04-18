@@ -4,11 +4,15 @@ class UserDAO {
 
     public function create($email, $username, $password): array {
         $newID = $this->getNewID();
+        $currentTime = date("Y-m-d\TH:i:s");
+
         $user = [
             "id" => $newID,
             "name" => $username,
             "email" => $email,
             "password" => password_hash($password, PASSWORD_DEFAULT),
+            "created_at" => $currentTime,
+            "updated_at" => $currentTime
         ];
     
         $fileName = "user-".$newID.".json";
@@ -43,7 +47,7 @@ class UserDAO {
 
     private function getAll(): array {
         $users = $GLOBALS["API"]->getFiles("../../data/user");
-        array_walk($users, function(&$value, $key) {
+        array_walk($users, function(&$value) {
             $value = json_decode(@file_get_contents("../../data/user/".$value), true);
         });
         return $users;
