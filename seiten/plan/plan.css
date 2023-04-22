@@ -101,6 +101,43 @@
     text-align: left;
 }
 
+/* buttons */
+.plan .day {
+    position: relative;
+}
+.plan .day .buttons {
+    display: none;
+}
+
+.plan .day:hover .buttons {
+    display: flex;
+    gap: 0.25rem;
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+}
+.plan .day .buttons button {
+    width: 25px;
+    height: 25px;
+    padding: 0;
+    position: relative;
+    border-radius: 15px;
+    background-color: var(--style-color);
+    border-color: transparent
+}
+.plan .day .buttons svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    fill: #fff;
+}
+.plan .day .buttons button.edit {
+    display: none;
+}
+
 @media only screen and (max-width: 1050px)  {
     .plan > div {
         padding: 0.4rem;

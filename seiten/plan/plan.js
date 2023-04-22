@@ -26,7 +26,7 @@ getPlan(currentUser.id).then(res => res.json()).then(plan => {
         let dayClass = days[medi.day];
         let timeClass = times[medi.time];
 
-        let element = planElem.querySelector(".day."+dayClass + "." + timeClass);
+        let element = planElem.querySelector(".day." + dayClass + "." + timeClass);
 
         if (element) {
             let container = element.querySelector(".medications");
@@ -46,8 +46,22 @@ getPlan(currentUser.id).then(res => res.json()).then(plan => {
             mediElement.append(nameElement);
             
             container.append(mediElement);
+
+            // Zeige den Edit-Button an
+            let editButton = element.querySelector("button.edit");
+            editButton.style.display = "block";
         }
     });
+
+    // Platziere listener für die Buttons
+    let addButtons = planElem.querySelectorAll("button.add");
+    addButtons.forEach((btn) => btn.addEventListener("click", () => {
+        console.log("test add");
+    }));
+    let editButtons = planElem.querySelectorAll("button.edit");
+    editButtons.forEach((btn) => btn.addEventListener("click", () => {
+        console.log("test edit");
+    }));
 
     hideLoader("page-loader");
 });
