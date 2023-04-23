@@ -1,0 +1,11 @@
+.container {
+    max-width: 520px;
+}
+
+#plan-add-formular .data {
+    border-spacing: 0.5rem;
+}
+#plan-add-formular .data th {
+    text-align: right;
+    padding-right: 1rem;
+}

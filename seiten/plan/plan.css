@@ -107,11 +107,10 @@
 }
 .plan .day .buttons {
     display: none;
+    gap: 0.25rem;
 }
-
 .plan .day:hover .buttons {
     display: flex;
-    gap: 0.25rem;
     position: absolute;
     right: 5px;
     bottom: 5px;
@@ -138,6 +137,10 @@
     display: none;
 }
 
+.buttons {
+    margin-top: 1rem;
+}
+
 @media only screen and (max-width: 1050px)  {
     .plan > div {
         padding: 0.4rem;
@@ -149,7 +152,9 @@
 
 @media only screen and (max-width: 800px)  {
     .plan {
-        margin: -1.5rem -1rem;
+        margin-top: -1.5rem;
+        margin-right: -1rem;
+        margin-left: -1rem;
     }
     .plan {
         grid-template-rows: repeat(38, auto);
@@ -212,6 +217,7 @@
     .plan .header {
         position: sticky;
         top: 0;
+        z-index: 2;
         border-top: 1px solid rgba(0, 0, 0, 0.18);
         justify-content: flex-start !important;
         font-size: 14pt;
@@ -238,6 +244,17 @@
     .plan .day .medications {
         flex: 90% 1 1;
         text-align: left;
+    }
+    .plan .day .buttons {
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+    }
+    .plan .day:hover .buttons {
+        display: inherit;
+        position: relative;
+        right: unset;
+        bottom: unset;
     }
 }
 

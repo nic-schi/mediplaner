@@ -1,22 +1,64 @@
-const routes = [];
+var routes = [];
+
+/**
+ * Gibt die Parameter aus der URL wieder
+ * 
+ * @returns {URLSearchParams} Instanz URLSearchParams
+ */
+function getParams() {
+    return new URLSearchParams(window.location.hash.split("?")[1]);
+}
+
+/**
+ * Prüft ob die Parameter angegeben wurden
+ * 
+ * @param {object} required Benötigte Parameter
+ */
+function checkParams(required) {
+    let currentParams = getParams();
+
+    if (currentParams !== null) {
+        
+        for (const [name, value] of Object.entries(required)) {
+            let type = value.constructor.name;
+
+            if (currentParams.has(name)) {
+                let paramValue = currentParams.get(name);
+
+                if (type === "Array") {
+                    console.log(paramValue, value.includes(paramValue.toLocaleLowerCase()));
+                    if (!value.includes(paramValue.toLocaleLowerCase())) {
+                        return false;
+                    }   
+                }
+            } else {
+                return false;
+            }
+        }
+        return true;
+    }
+    return false;
+}
 
 /**
  * Definiert eine Route.
  * 
  * @param {string} path Der Pfad der Route
+ * @param {string} navitemID Die ID des Navitems
  * @param {string} folder Der Pfad des Ordners
  * @param {string} title Der Titel der Seite
  * @param {boolean} auth Gibt an mit welcher Berechtigung die Seite besucht werden darf. true=Nur Authentifiziert;false=Nur Unauthentifiziert;undefined=Beides
  */
-function route(path, folder, title, auth) {
-    let navitem = document.getElementById(path);
+function route(path, navitemID, folder, title, auth) {
+    let navitem = document.getElementById(navitemID);
     
-    if (!navitem.classList.contains("noeffects")) {
-        navitem.addEventListener("click", () => activateNavitem(path));
+    if (navitem && !navitem.classList.contains("noeffects")) {
+        navitem.addEventListener("click", () => activateNavitem(navitemID));
     }
 
     routes.push({
         "path": path,
+        "navitem": navitemID,
         "folder": folder,
         "title": title,
         "auth": auth
@@ -65,14 +107,16 @@ function clearNavItems() {
 /**
  * Aktiviert ein Navigationsitem mit Hilfe des angegebenen Pfades.
  * 
- * @param {string} path Der Pfad der Datei
+ * @param {string} navitemID Die ID des Navitems
  */
-function activateNavitem(path) {
+function activateNavitem(navitemID) {
     clearNavItems();
     
     // Setze die Active-Klasse für das Aktive Navitem
-    let navItem = document.getElementById(path);
-    navItem.classList.add("active");
+    let navItem = document.getElementById(navitemID);
+    if (navItem) {
+        navItem.classList.add("active");
+    }
 };
 
 /**
@@ -93,7 +137,7 @@ function deletePageFile(type) {
  */
 async function router() {
     let app = document.getElementById("app");
-    let url = ("/" + window.location.hash.slice(1)) || "/";
+    let url = (("/" + window.location.hash.slice(1)) || "/").split("?")[0];
     let route = routes.find((item) => item.path === url);
 
     if (route != undefined) {
@@ -106,7 +150,7 @@ async function router() {
                 (route.auth && !isLoggedIn()) ||
                 (!route.auth && isLoggedIn())
             ) {
-                window.location.hash = "#";
+                redirect("");
                 return;
             }
         }
@@ -131,7 +175,7 @@ async function router() {
         });
 
         if (response.status === 200) {
-            activateNavitem(route.path);
+            activateNavitem(route.navitem);
 
             document.title = route.title + " | Mediplaner";
 
@@ -144,10 +188,10 @@ async function router() {
                 () => deletePageFile("js")
             );
         } else {
-            window.location.hash = "#";
+            redirect("");
         }
     }
-    console.log("Seite " + url + " geladen!");
+    console.log("Seite \"" + url + "\" geladen!");
 }
 
 /**
@@ -156,9 +200,9 @@ async function router() {
  */
 function resetNav() {
     routes.forEach((route) => {
-        navitem = document.getElementById(route.path);
+        navitem = document.getElementById(route.navitem);
 
-        if (route.auth !== undefined) {
+        if (navitem && route.auth !== undefined) {
             if (route.auth === isLoggedIn()) {
                 navitem.classList.remove("hidden");
             } else {
@@ -173,14 +217,41 @@ function resetNav() {
  * Eine Route repräsentiert eine Webseite in der Website
  */
 function registerRoutes() {
-    route("/",              "startseite",   "Startseite");
-    route("/impressum",     "impressum",    "Impressum");
-    route("/plan",          "plan",         "Mein Plan",            true);
-    route("/kontakt",       "kontakt",      "Kontakt");
-    route("/anmelden",      "anmelden",     "Anmelden",             false);
-    route("/registrieren",  "registrieren", "Registrieren",         false);
-    route("/abmelden",      "abmelden",     "Wird abgemeldet...",   true);
-    route("/profil",        "profil",       "Profil",               true) 
+    route("/",              "navitem-startseite",       "startseite",       "Startseite");
+    route("/impressum",     "navitem-impressum",        "impressum",        "Impressum");
+    route("/kontakt",       "navitem-kontakt",          "kontakt",          "Kontakt");
+    route("/anmelden",      "navitem-anmelden",         "anmelden",         "Anmelden",                     false);
+    route("/registrieren",  "navitem-registrieren",     "registrieren",     "Registrieren",                 false);
+    route("/abmelden",      "navitem-abmelden",         "abmelden",         "Wird abgemeldet...",           true);
+    route("/profil",        "navitem-profil",           "profil",           "Profil",                       true);
+
+    route("/plan",          "navitem-plan",             "plan",             "Mein Plan",                    true);
+    route("/plan-add",      "navitem-plan",             "plan-add",         "Eintrag hinzufügen",        true);
+}
+
+/**
+ * Löst ein Redirect aus, welcher die Webseite wechselt
+ * 
+ * @param {string} path 
+ * @param {URLSearchParams} params 
+ */
+function redirect(path, params) {
+    let url = `#${path}`;
+    if (params && params.toString() != "") {
+        url += `?${params.toString()}`;
+    }
+
+    resetNav();
+    placeUserName();
+    window.location.hash = url;
+}
+
+/**
+ * TODO: implement
+ * sessionStorage nutzen
+ */
+function redirectWithData() {
+
 }
 
 // Events

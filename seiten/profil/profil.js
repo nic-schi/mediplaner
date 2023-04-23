@@ -16,8 +16,7 @@ addConfirm("delete-acc-confirm", async () => {
     
     if (response.status === 204) {
         removeCurrentUser();
-        resetNav();
-        window.location.href = "#";
+        redirect("");
         addMessage(MessageType.GOOD, "Dein Benutzerkonto wurde erfolgreich gelöscht!");
     } else {
         let error = await response.json();

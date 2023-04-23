@@ -8,8 +8,13 @@ textarea {
     max-height: 500px;
 }
 
+form .row {
+    gap: 0 1rem;
+}
+
 form .input-group input, 
-form .input-group textarea {
+form .input-group textarea,
+form .input-group select {
     padding: 1.7rem 0.65rem 0.625rem 0.75rem;
     display: block;
     width: 100%;
@@ -22,36 +27,44 @@ form .input-group textarea {
 }
 
 form .input-group input:focus,
-form .input-group textarea:focus {
+form .input-group textarea:focus,
+form .input-group select:focus {
     box-shadow: 0 0 0 .15rem var(--input-focus-color);
     outline: none;
 }
 form .input-group input.valid,
-form .input-group textarea.valid {
+form .input-group textarea.valid,
+form .input-group select.valid {
     outline: 1px solid var(--good);
 }
 form .input-group input.valid:focus,
-form .input-group textarea.valid:focus {
+form .input-group textarea.valid:focus,
+form .input-group select.valid:focus {
     box-shadow: 0 0 0 .15rem var(--good-alpha);
 }
 form .input-group input.invalid,
-form .input-group textarea.invalid {
+form .input-group textarea.invalid,
+form .input-group select.invalid {
     outline: 1px solid var(--bad);
 }
 form .input-group input.invalid:focus,
-form .input-group textarea.invalid:focus {
+form .input-group textarea.invalid:focus,
+form .input-group select.invalid:focus {
     box-shadow: 0 0 0 .15rem var(--bad-alpha);
 }
 
 form .input-group input::placeholder,
-form .input-group textarea::placeholder {
+form .input-group textarea::placeholder,
+form .input-group select::placeholder {
     color: transparent;
 }
 
 form .input-group input:focus ~ label, 
 form .input-group textarea:focus ~ label,
+form .input-group select:focus ~ label,
 form .input-group input:not(:placeholder-shown) ~ label,
-form .input-group textarea:not(:placeholder-shown) ~ label {
+form .input-group textarea:not(:placeholder-shown) ~ label,
+form .input-group select:not(:placeholder-shown) ~ label {
     opacity: 0.7;
     pointer-events: none;
     top: 0.55rem;
@@ -63,6 +76,46 @@ form .input-group label {
     left: 0.75rem;
     top: calc(1.15rem + 2px);
     transition: opacity 100ms ease-in-out, top 100ms ease-in-out, font-size 100ms ease-in-out;
+}
+
+/* Nummerfeld */
+input[type="number"] {
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+}
+.input-group .number-arrows {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--input-border-color);
+    height: 58px;
+    border-radius: 0 0.25rem 0.25rem 0;
+    top: 0;
+    right: 0;
+}
+.input-group .number-arrows > div {
+    flex: 50% 0 0;
+    cursor: pointer;
+    user-select: none;
+    padding: 0 0.5rem;
+    font-size: 12pt;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0 0 0.25rem 0;
+    filter: opacity(77%);
+}
+.input-group .number-arrows > div:active {
+    box-shadow: 0 0 0 .15rem var(--input-focus-color);
+}
+.input-group .number-arrows > div:first-child {
+    border-radius: 0  0.25rem 0 0;
+    border-bottom: 1px solid var(--input-border-color);
 }
 
 /* Knöpfe */
@@ -110,6 +163,17 @@ button.good:focus {
 }
 button.good:focus {
     box-shadow: 0 0 0 .15rem var(--good-akzent);
+}
+
+/* required */
+input:required ~ label:after,
+textarea:required ~ label:after,
+select:required ~ label:after {
+    content: "*";
+    color: rgb(166, 3, 3);
+    position: absolute;
+    font-size: 12.5pt;
+    margin-left: 0.24rem;
 }
 
 /* Feedback */

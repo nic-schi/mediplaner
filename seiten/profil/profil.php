@@ -17,7 +17,7 @@
         <div class="feedback"></div>
 
         <div id="delete-acc-confirm" class="confirm-wrapper">
-            <button class="bad original" id="delete-acc" type="button">Benutzerkonto löschen</button>
+            <button class="bad original small" id="delete-acc" type="button">Benutzerkonto löschen</button>
             <div class="confirm-container">
                 <p class="text">
                     <b>Sind Sie sicher?</b><br/>

@@ -93,4 +93,10 @@
 
         ?>
     </div>
+
+    <div class="buttons">
+        <a href="#plan-add">
+            <button class="small">Eintrag hinzufügen</button>
+        </a>
+    </div>
 </div>

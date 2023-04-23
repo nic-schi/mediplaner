@@ -5,12 +5,14 @@ form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
     // Hole Felder
+    let data = new FormData(e.target);
+
     let inputs = e.target.elements;
     let emailFeld = inputs.namedItem("email");
     let passwordFeld = inputs.namedItem("password");
 
-    let email = emailFeld.value;
-    let password = passwordFeld.value;
+    let email = data.get("email");
+    let password = data.get("password");
 
     // Validierung
     clearFeedback(e.target);
@@ -21,7 +23,7 @@ form.addEventListener("submit", async (e) => {
         error = true;
         addFeedback(emailFeld, FeedbackType.INVALID, "E-Mail-Adresse darf nicht leer sein!");
     } else {
-        // Email üngültig anhand von regex-expression
+        // Email üngültigkeit prüfen anhand von regex-ausdruck
         let emailValid = /\S+@\S+\.\S+/.test(email);
         if (!emailValid) {
             error = true;
@@ -44,9 +46,7 @@ form.addEventListener("submit", async (e) => {
         // Anmeldung erfolgreich
         if (response.status === 200) {
             setCurrentUser(content);
-            resetNav();
-            placeUserName();
-            window.location.hash = '#profil';
+            redirect("profil");
             addMessage(MessageType.GOOD, "Willkommen zurück!");
         } else {
             // Anmeldung fehlgeschlagen

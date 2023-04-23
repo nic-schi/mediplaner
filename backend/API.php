@@ -45,9 +45,29 @@ class API {
     }
 
     function params($requiredParams) {
+        $method = $_SERVER['REQUEST_METHOD'];
+        
+        switch ($method) {
+            case 'GET':
+                $params = $_GET;
+                break;
+            case 'POST':
+                $params = $_POST;
+                break;
+            case 'DELETE':
+                $params = $_POST;
+                break;
+            case 'PUT':
+                $params = $_POST;
+                break;
+            default:
+                $params = $_REQUEST;
+                break;
+        }
+
         $missing = false;
         foreach ($requiredParams as $item) {
-            if (!isset($_POST[$item])) {
+            if (!isset($params[$item])) {
                 $this->addError($item.".missing", "Anfrageparameter ".$item." fehlt!");
                 $missing = true;
             }
@@ -58,7 +78,7 @@ class API {
             return;
         }
         
-        return $_POST;
+        return $params;
     }
 
     function auth($die=true) {

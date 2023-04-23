@@ -5,16 +5,18 @@ form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
     // Hole Felder
+    let data = new FormData(e.target);
     let inputs = e.target.elements;
+
     let usernameFeld = inputs.namedItem("username");
     let emailFeld = inputs.namedItem("email");
     let passwordFeld = inputs.namedItem("password");
     let passwordRFeld = inputs.namedItem("password-repeat");
 
-    let username = usernameFeld.value;
-    let email = emailFeld.value;
-    let password = passwordFeld.value;
-    let passwordR = passwordRFeld.value;
+    let username = data.get("username");
+    let email = data.get("email");
+    let password = data.get("password");
+    let passwordR = data.get("password-repeat");
 
     // Validierung
     clearFeedback(e.target);
@@ -59,9 +61,7 @@ form.addEventListener("submit", async (e) => {
 
         if (response.status === 201) {
             setCurrentUser(data);
-            resetNav();
-            placeUserName();
-            window.location.hash = '#profil';
+            redirect("profil");
             addMessage(MessageType.GOOD, "Willkommen!");
         } else {
             if (data["email.used"]) {

@@ -5,12 +5,11 @@
  * @returns Response
  */
 async function getPlan(id) {
-    let data = new FormData();
-    data.append("id", id);
+    let params = new URLSearchParams();
+    params.append("id", id);
     
-    let response = await fetch("backend/plan/get.php", {
-        method: "POST",
-        body: data,
+    let response = await fetch("backend/plan/get.php?" + params.toString(), {
+        method: "GET",
         headers: getAuthHeader()
     });
 
@@ -22,11 +21,12 @@ getPlan(currentUser.id).then(res => res.json()).then(plan => {
     let days = plan.days;
     let times = plan.times;
 
+    // Platziere Medikamente
     plan.medications.forEach(medi => {
         let dayClass = days[medi.day];
         let timeClass = times[medi.time];
 
-        let element = planElem.querySelector(".day." + dayClass + "." + timeClass);
+        let element = planElem.querySelector(`.day.${dayClass}.${timeClass}`);
 
         if (element) {
             let container = element.querySelector(".medications");
@@ -54,14 +54,27 @@ getPlan(currentUser.id).then(res => res.json()).then(plan => {
     });
 
     // Platziere listener für die Buttons
-    let addButtons = planElem.querySelectorAll("button.add");
-    addButtons.forEach((btn) => btn.addEventListener("click", () => {
-        console.log("test add");
-    }));
-    let editButtons = planElem.querySelectorAll("button.edit");
-    editButtons.forEach((btn) => btn.addEventListener("click", () => {
-        console.log("test edit");
-    }));
+    plan.days.forEach((day) => {
+        plan.times.forEach((time) => {
+            let element = planElem.querySelector(`.day.${day}.${time}`);
+            
+            // Add
+            let addButton = element.querySelector("button.add");
+            addButton.addEventListener("click", () => {
+                let params = new URLSearchParams();
+                params.append("day", day);
+                params.append("time", time);
+
+                redirect("plan-add", params);
+            });
+
+            // Edit
+            let editButton = element.querySelector("button.edit");
+            editButton.addEventListener("click", () => {
+                console.log("test edit");
+            });
+        });
+    });
 
     hideLoader("page-loader");
 });

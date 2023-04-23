@@ -17,8 +17,7 @@ window.addEventListener("load", async () => {
         } else {
             // Benutzer abmelden und token verwerfen
             removeCurrentUser();
-            resetNav();
-            window.location.href = "#";
+            redirect("");
         }
     }
     hideLoader("full-loader");
@@ -40,12 +39,10 @@ function getAuthHeader(headers) {
 
 /**
  * Authentifiziert den Benutzer und prüft somit, ob der token gültig ist
- * 
- * @param {string} token Der Token
  */
-async function authenticate(token) {
+async function authenticate() {
     let response = await fetch("backend/user/authenticate.php", {
-        method: "POST",
+        method: "GET",
         headers: getAuthHeader()
     });
 
@@ -56,8 +53,10 @@ async function authenticate(token) {
  * Platziert den Usernamen und das Profile-Bild des aktuellen Benutzers.
  */
 function placeUserName() {
-    document.getElementById("username-text").innerText = currentUser.name;
-    document.getElementById("profile-picture").innerText = currentUser.name.substring(0,1).toUpperCase();
+    if (isLoggedIn()) {
+        document.getElementById("username-text").innerText = currentUser.name;
+        document.getElementById("profile-picture").innerText = currentUser.name.substring(0,1).toUpperCase();
+    }
 }
 
 /**
@@ -146,7 +145,7 @@ async function logout() {
  */
 async function deleteUserAccount() {
     let response = await fetch("backend/user/delete.php", {
-        method: "POST",
+        method: "DELETE",
         headers: getAuthHeader()
     });
 

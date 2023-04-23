@@ -7,7 +7,7 @@ const FeedbackType = {
  * Fügt ein Feedback zum angegebenen Element hinzu.
  * Es sollte sich entweder um ein HTMLInputElement oder ein HTMLFormElement handeln.
  * 
- * @param {HTMLInputElement | HTMLFormElement} input Das Element
+ * @param {HTMLInputElement | HTMLFormElement | HTMLSelectElement | HTMLTextAreaElement} input Das Element
  * @param {FeedbackType} type Der Typ des Feedbacks [FeedbackType.VALID, FeedbackType.INVALID]
  * @param {string} text Der Text des Feedbacks
  */
@@ -15,7 +15,13 @@ function addFeedback(input, type, text) {
     let parent = input.parentElement;
     let feedback = getFeedbackElement(type, text);
 
-    if (parent != null && input.constructor.name === "HTMLInputElement") {
+    if (
+        parent != null && (
+            input.constructor.name === "HTMLInputElement" ||
+            input.constructor.name === "HTMLSelectElement" ||
+            input.constructor.name === "HTMLTextAreaElement"
+        )
+    ) {
         // Input-spezifisches Feedback
         // Wird unter einem Input-Feld platziert
         let feedbackContainer = findFeedbackChild(parent);
