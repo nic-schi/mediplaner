@@ -2,6 +2,7 @@
 
 require "../API.php";
 
+$API->forceMethod("DELETE");
 $API->auth();
 
 $user = $_SESSION["user"];

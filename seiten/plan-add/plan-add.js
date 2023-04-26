@@ -4,17 +4,7 @@ var units = getUnits();
 
 (() => {
     let params = getParams();
-            
-    const addToSelect = (items, elem, activeItem) => {
-        Object.entries(items).forEach(([key, value]) => {
-            let option = document.createElement("option");
-            option.value = key;
-            option.innerHTML = value;
-            option.selected = (activeItem && key == activeItem);
-            elem.append(option);
-        });
-    };
-
+         
     // Füge Zeiten hinzu
     let timeElem = document.getElementById("time");
     addToSelect(times, timeElem, params.get("time"));
@@ -51,8 +41,8 @@ async function addMedicamentToPlan(id, day, time, amount, unit, name) {
     data.append("unit", unit);
     data.append("name", name);
     
-    let response = await fetch("backend/plan/update.php", {
-        method: "PUT",
+    let response = await fetch("backend/plan/add.php", {
+        method: "POST",
         body: data,
         headers: getAuthHeader()
     });
@@ -140,6 +130,8 @@ document.getElementById("plan-add-formular").addEventListener("submit", async (e
             name
         );
 
-        console.log(response);
+        if (response.status === 200) {
+            addFeedback(e.target, FeedbackType.VALID, "Medikament Erfolgreich hinzugefügt!");
+        }
     }
 });

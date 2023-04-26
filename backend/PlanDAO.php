@@ -18,26 +18,19 @@ class PlanDAO {
             "owner" => $owner,
             "updated_at" => $currentTime,
             "created_at" => $currentTime,
-            "days" => [
-                "monday",
-                "tuesday",
-                "wednesday",
-                "thursday",
-                "friday",
-                "saturday",
-                "sunday"
-            ],
-            "times" => [
-                "morning",
-                "dinner",
-                "evening",
-                "night"
-            ],
+            "days" => $this->getDays(),
+            "times" => $this->getTimes(),
             "medications" => []
         ];
         $fileName = "plan-".$newId.".json";
         @file_put_contents("../../data/plan/".$fileName, json_encode($plan, JSON_PRETTY_PRINT));
         return $plan;
+    }
+
+    public function update($newPlan) {
+        $fileName = "plan-".$newPlan["id"].".json";
+        @file_put_contents("../../data/plan/".$fileName, json_encode($newPlan, JSON_PRETTY_PRINT));
+        return $newPlan;
     }
 
     public function getNewID() {
@@ -55,6 +48,27 @@ class PlanDAO {
             $value = json_decode(@file_get_contents("../../data/plan/".$value), true);
         });
         return $plans;
+    }
+
+    public function getTimes(): array { 
+        return [
+            "morning",
+            "dinner",
+            "evening",
+            "night"
+        ];
+    }
+
+    public function getDays(): array {
+        return [
+            "monday",
+            "tuesday",
+            "wednesday",
+            "thursday",
+            "friday",
+            "saturday",
+            "sunday"
+        ];
     }
 
 }

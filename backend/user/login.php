@@ -2,7 +2,7 @@
 
 require "../API.php";
 
-// Parameter
+$API->forceMethod("POST");
 $params = $API->params(["email", "password"]);
 
 $foundUser = null;

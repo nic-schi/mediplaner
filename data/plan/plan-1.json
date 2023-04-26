@@ -1,7 +1,7 @@
 {
     "id": 1,
     "owner": 1,
-    "updated_at": "2023-04-18T21:58:04",
+    "updated_at": "2023-04-26T19:09:22",
     "created_at": "2023-04-18T21:58:04",
     "days": [
         "monday",
@@ -20,32 +20,67 @@
     ],
     "medications": [
         {
-            "name": "Aspirin",
-            "amount": 20,
-            "unit": "ml",
+            "name": "Insolin",
+            "amount": 37,
+            "unit": "ie",
+            "time": 0,
+            "day": 0
+        },
+        {
+            "name": "Insolin",
+            "amount": 37,
+            "unit": "ie",
+            "time": 0,
+            "day": 1
+        },
+        {
+            "name": "Insolin",
+            "amount": 37,
+            "unit": "ie",
+            "time": 0,
+            "day": 2
+        },
+        {
+            "name": "Insolin",
+            "amount": 37,
+            "unit": "ie",
+            "time": 0,
+            "day": 3
+        },
+        {
+            "name": "Insolin",
+            "amount": 37,
+            "unit": "ie",
+            "time": 0,
+            "day": 4
+        },
+        {
+            "name": "Insolin",
+            "amount": 37,
+            "unit": "ie",
+            "time": 0,
+            "day": 5
+        },
+        {
+            "name": "Insolin",
+            "amount": 37,
+            "unit": "ie",
+            "time": 0,
+            "day": 6
+        },
+        {
+            "name": "Koks",
+            "amount": 1,
+            "unit": "halfpill",
             "time": 1,
             "day": 2
         },
         {
-            "name": "Mehl",
-            "amount": 100,
-            "unit": "g",
-            "time": 0,
-            "day": 3
-        },
-        {
-            "name": "Eier",
+            "name": "Crack",
             "amount": 2,
-            "unit": "",
+            "unit": "ml",
             "time": 0,
-            "day": 3
-        },
-        {
-            "name": "Kodein",
-            "amount": 100,
-            "unit": "g",
-            "time": 2,
-            "day": 4
+            "day": 1
         }
     ]
 }

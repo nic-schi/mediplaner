@@ -1,4 +1,11 @@
 <div class="container">
+    <a href="#plan" class="back">
+        <button class="small">
+            <img src="images/icons/arrow-left.svg"/>
+            Zurück zum Plan
+        </button>
+    </a>
+
     <h1>Eintrag hinzufügen</h1>
 
     <hr />

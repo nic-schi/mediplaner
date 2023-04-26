@@ -92,13 +92,17 @@
     align-items: center;
 }
 .plan .day .medications .medicament > div {
-    flex: 50% 1 1;   
+    flex: 50% 0 1;   
 }
-.plan .day .medications .medicament > div:first-child {
+.plan .day .medications .medicament > .value {
     text-align: right;
+    word-wrap: unset;
+    white-space: nowrap
 }
-.plan .day .medications .medicament > div:last-child {
+.plan .day .medications .medicament > .name {
     text-align: left;
+    word-wrap: break-word;
+    white-space: break-spaces;
 }
 
 /* buttons */
@@ -139,6 +143,15 @@
 
 .buttons {
     margin-top: 1rem;
+}
+
+/* Metadaten */
+.metadata {
+    border-spacing: 0.5rem;
+}
+.metadata th {
+    text-align: right;
+    padding-right: 1rem;
 }
 
 @media only screen and (max-width: 1050px)  {

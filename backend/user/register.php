@@ -2,6 +2,7 @@
 
 require "../API.php";
 
+$API->forceMethod("POST");
 $params = $API->params(["email", "username", "password"]);
 
 // Validierung

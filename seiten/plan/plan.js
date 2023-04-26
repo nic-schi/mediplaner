@@ -35,8 +35,8 @@ getPlan(currentUser.id).then(res => res.json()).then(plan => {
             mediElement.className = "medicament";
 
             let amountElement = document.createElement("div");
-            amountElement.className = "amount";
-            amountElement.innerText = medi.amount + medi.unit;
+            amountElement.className = "value";
+            amountElement.innerText = medi.amount + getUnitDisplay(medi.unit, medi.amount);
 
             let nameElement = document.createElement("div");
             nameElement.className = "name";
@@ -75,6 +75,9 @@ getPlan(currentUser.id).then(res => res.json()).then(plan => {
             });
         });
     });
+
+    // Platziere metadaten
+    document.getElementById("plan-created-at")
 
     hideLoader("page-loader");
 });

@@ -124,6 +124,40 @@ function getUnits() {
 }
 
 /**
+ * Wandelt eine Unit in einen darstellbaren zustand um.
+ * Formatiert die Values von getUnits() und gibt diese zurück.
+ * 
+ * @param {string} unit 
+ * @param {integer} amount 
+ */
+function getUnitDisplay(unit, amount) {
+    let units = getUnits();
+
+    if (
+        unit.startsWith("g") ||
+        unit.startsWith("mg") ||
+        unit.startsWith("μg") ||
+        unit.startsWith("ml") ||
+        unit.startsWith("ie")
+    ) {
+        unit = units[unit].split(" ")[0];
+        if (unit === "IE") {
+            return ` ${unit}`;
+        }
+    }
+    unit = ` ${units[unit]}`;
+
+    if (
+        unit.includes("/") &&
+        amount == 1
+    ) {
+        unit = unit.split("/")[0];
+    }
+
+    return unit.replace("/", "");
+}
+
+/**
  * Fügt jedem auf der Website gefundenen Formularelement mit dem Typ "number" zwei Pfeile hinzu, welchen das Input steuern.
  */
 function addArrowsToNumberInputs() {
@@ -184,3 +218,20 @@ function addArrowsToNumberInputs() {
         input.parentNode.append(numberArrows);
     });
 }
+
+/**
+ * Fügt eine Liste an Optionen zu einem Selectelement hinzu.
+ * 
+ * @param {object} items Die Items die hinzugefügt werden sollen
+ * @param {HTMLSelectElement} select Das Selectelement
+ * @param {string} activeItem Key von dem Eintrag, welcher ausgewählt sein soll
+ */
+function addToSelect(items, select, activeItem) {
+    Object.entries(items).forEach(([key, value]) => {
+        let option = document.createElement("option");
+        option.value = key;
+        option.innerHTML = value;
+        option.selected = (activeItem && key == activeItem);
+        select.append(option);
+    });
+};

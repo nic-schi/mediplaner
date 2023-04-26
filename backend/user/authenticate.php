@@ -2,6 +2,7 @@
 
 require "../API.php";
 
+$API->forceMethod("GET");
 $API->auth();
 
 $user = $_SESSION["user"];

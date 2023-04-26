@@ -44,6 +44,16 @@ class API {
         return count($this->errors)>0;
     }
 
+    function forceMethod($forcedMethod) {
+        $method = $_SERVER['REQUEST_METHOD'];
+        
+        if ($method !== $forcedMethod) {
+            $this->addError("method", "Falsche Anfragemethode! ".$forcedMethod." erwartet.");
+            $this->printErrors(405);
+            return;
+        }
+    }
+
     function params($requiredParams) {
         $method = $_SERVER['REQUEST_METHOD'];
         
@@ -55,9 +65,6 @@ class API {
                 $params = $_POST;
                 break;
             case 'DELETE':
-                $params = $_POST;
-                break;
-            case 'PUT':
                 $params = $_POST;
                 break;
             default:
