@@ -132,20 +132,19 @@ function getUnits() {
  */
 function getUnitDisplay(unit, amount) {
     let units = getUnits();
+    let unitText = units[unit];
 
     if (
-        unit.startsWith("g") ||
-        unit.startsWith("mg") ||
-        unit.startsWith("μg") ||
-        unit.startsWith("ml") ||
-        unit.startsWith("ie")
+        unitText.toLowerCase().startsWith("g") ||
+        unitText.toLowerCase().startsWith("mg") ||
+        unitText.toLowerCase().startsWith("μg") ||
+        unitText.toLowerCase().startsWith("ml") ||
+        unitText.toLowerCase().startsWith("ie")
     ) {
-        unit = units[unit].split(" ")[0];
-        if (unit === "IE") {
-            return ` ${unit}`;
-        }
+        unit = unitText.split(" ")[0];
+        return unit === "IE" ? ` ${unit}` : unit;
     }
-    unit = ` ${units[unit]}`;
+    unit = ` ${unitText}`;
 
     if (
         unit.includes("/") &&

@@ -71,3 +71,20 @@ p {
 .row .col {
     flex: auto 1 1;
 }
+
+a.back {
+    display: inline-block;
+    margin-bottom: 1rem;
+    text-decoration: none;
+}
+a.back button {
+    padding: 0.25rem 0.75rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+a.back img {
+    width: auto;
+    height: 25px;
+    margin-right: 0.5rem;
+}

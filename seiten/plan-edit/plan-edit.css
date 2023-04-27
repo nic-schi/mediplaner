@@ -1,0 +1,41 @@
+/* Metadaten */
+.metadata {
+    border-spacing: 0.5rem;
+    margin-bottom: 1rem;
+}
+.metadata th {
+    text-align: right;
+    padding-right: 1rem;
+}
+
+#medications fieldset {
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    border-radius: 0.25rem;
+    border: 1px solid var(--nav-border-color);
+}
+#medications fieldset legend {
+    border: 1px solid var(--nav-border-color);
+    background-color: var(--nav-bg-color);
+    position: relative;
+    border-radius: 0.25rem;
+    padding: 0.5rem 1rem;
+}
+#medications fieldset .input-group:nth-child(3) {
+    margin: 0;
+}
+#medications fieldset legend .mediname {
+    font-weight: 600;
+}
+
+button.delete-button {
+    position: absolute;
+    top: -2px;
+    right: -45px;
+    margin: 0;
+    padding: 0.25rem 0.35rem;
+}
+button.delete-button img {
+    width: 25px;
+    height: 25px;
+}

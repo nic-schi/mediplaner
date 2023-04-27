@@ -226,7 +226,8 @@ function registerRoutes() {
     route("/profil",        "navitem-profil",           "profil",           "Profil",                       true);
 
     route("/plan",          "navitem-plan",             "plan",             "Mein Plan",                    true);
-    route("/plan-add",      "navitem-plan",             "plan-add",         "Eintrag hinzufügen",        true);
+    route("/plan-add",      "navitem-plan",             "plan-add",         "Eintrag hinzufügen",           true);
+    route("/plan-edit",      "navitem-plan",             "plan-edit",         "Eintrag bearbeiten",           true);
 }
 
 /**
@@ -244,14 +245,6 @@ function redirect(path, params) {
     resetNav();
     placeUserName();
     window.location.hash = url;
-}
-
-/**
- * TODO: implement
- * sessionStorage nutzen
- */
-function redirectWithData() {
-
 }
 
 // Events

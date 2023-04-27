@@ -21,35 +21,6 @@ var units = getUnits();
     hideLoader("page-loader");
 })();
 
-/**
- * Holt einen Plan vom Backend mit der angegebenen ID
- * 
- * @param {int} id Die ID 
- * @param {string} day 
- * @param {string} time 
- * @param {int} amount 
- * @param {string} unit 
- * @param {string} name 
- * @returns Response
- */
-async function addMedicamentToPlan(id, day, time, amount, unit, name) {
-    let data = new FormData();
-    data.append("id", id);
-    data.append("day", day);
-    data.append("time", time);
-    data.append("amount", amount);
-    data.append("unit", unit);
-    data.append("name", name);
-    
-    let response = await fetch("backend/plan/add.php", {
-        method: "POST",
-        body: data,
-        headers: getAuthHeader()
-    });
-
-    return response;
-}
-
 document.getElementById("plan-add-formular").addEventListener("submit", async (e) => {
     e.preventDefault();
 

@@ -1,7 +1,7 @@
 {
     "id": 1,
     "owner": 1,
-    "updated_at": "2023-04-26T19:09:22",
+    "updated_at": "2023-04-27T02:31:56",
     "created_at": "2023-04-18T21:58:04",
     "days": [
         "monday",
@@ -28,8 +28,8 @@
         },
         {
             "name": "Insolin",
-            "amount": 37,
             "unit": "ie",
+            "amount": 34,
             "time": 0,
             "day": 1
         },
@@ -77,8 +77,22 @@
         },
         {
             "name": "Crack",
-            "amount": 2,
             "unit": "ml",
+            "amount": 2,
+            "time": 0,
+            "day": 1
+        },
+        {
+            "name": "Crack",
+            "amount": 2,
+            "unit": "drop",
+            "time": 2,
+            "day": 3
+        },
+        {
+            "name": "Koks",
+            "unit": "g",
+            "amount": 200,
             "time": 0,
             "day": 1
         }

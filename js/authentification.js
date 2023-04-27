@@ -38,18 +38,6 @@ function getAuthHeader(headers) {
 }
 
 /**
- * Authentifiziert den Benutzer und prüft somit, ob der token gültig ist
- */
-async function authenticate() {
-    let response = await fetch("backend/user/authenticate.php", {
-        method: "GET",
-        headers: getAuthHeader()
-    });
-
-    return response;
-}
-
-/**
  * Platziert den Usernamen und das Profile-Bild des aktuellen Benutzers.
  */
 function placeUserName() {
@@ -84,70 +72,4 @@ function removeCurrentUser() {
  */
 function isLoggedIn() {
     return currentUser !== null;
-}
-
-/**
- * Registriert einen neuen Benutzer
- * 
- * @param {string} username Benutzername
- * @param {string} email E-Mail-Adresse
- * @param {string} password Passwort
- * @returns Response
- */
-async function register(username, email, password) {
-    let data = new FormData();
-    data.append("username", username);
-    data.append("email", email);
-    data.append("password", password);
-
-    let response = await fetch("backend/user/register.php", {
-        method: "POST",
-        body: data
-    });
-    
-    return response;
-}
-
-/**
- * Loggt den Benutzer ein.
- * 
- * @param {string} email Die E-Mail-Adresse des Benutzers 
- * @param {string} password Das Passwort des Benutzers
- * @returns Response
- */
-async function login(email, password) {
-    let data = new FormData();
-    data.append("email", email);
-    data.append("password", password);
-
-    let response = await fetch("backend/user/login.php", {
-        method: "POST",
-        body: data
-    });
-
-    return response;
-}
-
-/**
- * Loggt den Benutzer aus.
- */
-async function logout() {
-    let response = await fetch("backend/user/logout.php", {
-        method: "POST",
-        headers: getAuthHeader()
-    });
-
-    return response;
-}
-
-/**
- * Löscht den Benutzeraccount des aktuellen angemeldeten Benutzers
- */
-async function deleteUserAccount() {
-    let response = await fetch("backend/user/delete.php", {
-        method: "DELETE",
-        headers: getAuthHeader()
-    });
-
-    return response;
 }
