@@ -30,7 +30,9 @@
     </p>
     <p>
         <strong>Quellen:</strong><br>
-        Icons: <a href="https://www.svgrepo.com">svgrepo.com</a>
+        Icons: <a href="https://www.svgrepo.com">svgrepo.com</a> <br/>
+        Kundenrezensionen: <a href="https://deepai.org/machine-learning-model/cute-creature-generator">deepai.org</a> <br/>
+        Texte: <a href="https://chat.openai.com/">Chat GPT</a>
     </p>
     
     <br>

@@ -1,0 +1,135 @@
+.container {
+    max-width: 750px;
+}
+
+div.headline {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    margin: 2.5rem 0.5rem;
+    align-items: center;
+}
+
+div.headline svg {
+    width: auto;
+    height: 50px;
+    vertical-align: middle;
+}
+div.headline span {
+    font-size: 15pt;
+    font-weight: 500;
+}
+.plan-img {
+    width: 100%;
+}
+.plan-img-sm {
+    width: auto;
+    height: 400px;
+}
+
+h2, h1 {
+    border: 1px solid var(--nav-border-color);
+    border-left: 7px solid var(--style-color);
+    border-right: none;
+    padding: 1rem;
+    background-color: var(--nav-bg-color);
+}
+h1 {
+    margin-bottom: 2rem;
+}
+h2 {
+    margin: 2rem 0;
+}
+
+@media only screen and (max-width: 600px) {
+    h1 {
+        margin-top: -1.5rem;
+    }
+    h1, h2 {
+        margin-left: -1rem;
+        margin-right: -1rem;
+    }
+}
+
+.smartphone .row {
+    gap: 2.5rem;
+    justify-content: center;
+    align-items: center;
+}
+.smartphone .row .col:first-child {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: max-content 0 0;
+}
+.smartphone .row .col:last-child {
+    flex: 1 1;
+}
+
+@media only screen and (max-width: 600px) {
+    .smartphone .row .col {
+        flex: 100% 0 0 !important;
+    }
+}
+
+/* Customer */
+.cards .card {
+    flex: 48% 1 1;
+}
+.card .picture {
+    width: 140px;
+    height: 140px;
+}
+.card .text {
+    margin-top: 1rem;
+    font-size: 10pt;
+    position: relative;
+}
+.card .text span {
+    color: var(--style-color);
+    font-size: 24pt;
+}
+.card .text::before, .card .text::after {
+    color: var(--style-color);
+    font-size: 24pt;
+    position: absolute;
+}
+.card .text::before {
+    content: "”";
+    right: 100%;
+}
+.card .text::after {
+    content: "„";
+}
+
+.info-container {
+    display: flex;
+}
+.info-container .picture {
+    flex: auto 0 1;
+    border-radius: 15px 0 15px 15px;
+}
+.info-container .info {
+    flex: auto 1 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.info-container .info .name {
+    font-size: 14pt;
+    font-weight: 600;
+    background-color: var(--style-color);
+    color: #fff;
+    padding: 1rem;
+    border-radius: 0 9px 9px 0;
+}
+
+
+.info-container .info .rating {
+    padding: 1rem;
+    font-size: 18pt;
+    color: rgba(66, 62, 37, 0.4);   
+}
+.info-container .info .rating span {
+    color: rgb(205, 177, 19);   
+}

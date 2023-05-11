@@ -19,6 +19,7 @@
     background-color: var(--nav-bg-color);
     position: relative;
     border-radius: 0.25rem;
+    min-height: 36.8px;
     padding: 0.5rem 1rem;
 }
 #medications fieldset .input-group:nth-child(3) {

@@ -36,7 +36,6 @@ getPlan(currentUser.id).then(res => res.json()).then(plan => {
         let mediElem = medicamentCopy.cloneNode(true);
 
         // Platziere Metadaten zum Medikament
-        mediElem.querySelector(".index").innerHTML = index + 1;
         mediElem.querySelector(".mediname").innerHTML = medi.name;
 
         // Platziere Werte & ID's
@@ -58,9 +57,13 @@ getPlan(currentUser.id).then(res => res.json()).then(plan => {
         nameElem.id = `name-${index}`;
         mediElem.querySelector(".name-label").htmlFor = `name-${index}`;
 
+        // Name change listener
         nameElem.addEventListener("input", (e) => {
             mediElem.querySelector(".mediname").innerHTML = e.target.value;
         });
+
+        // Delete
+        mediElem.querySelector(".delete-button").addEventListener("click", () => mediElem.remove());
 
         mediContainer.append(mediElem);
     });

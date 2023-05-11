@@ -6,12 +6,11 @@
         </button>
     </a>
 
-    <h1>Eintrag bearbeiten</h1>
+    <h1>Einträge bearbeiten</h1>
 
     <hr />
 
-    <form id="plan-edit-formular">
-        <table class="metadata">
+    <table class="metadata">
             <tbody>
                 <tr>
                     <th>Tag:</th>
@@ -24,10 +23,11 @@
             </tbody>
         </table>
 
+    <form id="plan-edit-formular">
         <div id="medications">
             <fieldset class="medicament copy">
                 <legend>
-                    Medikament <span class="index"></span> - <span class="mediname"></span>
+                    <span class="mediname"></span>
                     
                     <button type="button" class="bad delete-button small">
                         <img src="images/icons/trashcan.svg" />

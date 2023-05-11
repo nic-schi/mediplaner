@@ -12,11 +12,11 @@ $plan = $planDAO->get($params["id"]);
 
 $plan["updated_at"] = $currentTime;
 $plan["medications"][] = [
-    "name" => $params["name"],
     "amount" => intval($params["amount"]),
     "unit" => $params["unit"],
-    "time" => array_search($params["time"], $planDAO->getTimes()),
-    "day" => array_search($params["day"], $planDAO->getDays())
+    "name" => $params["name"],
+    "day" => array_search($params["day"], $planDAO->getDays()),
+    "time" => array_search($params["time"], $planDAO->getTimes())
 ];
 
 $planDAO->update($plan);
