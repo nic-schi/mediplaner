@@ -5,13 +5,17 @@ require "../API.php";
 $API->forceMethod("POST");
 $params = $API->params(["email", "password"]);
 
+// Hole alle Benutzer
 $foundUser = null;
 $files = $API->getFiles("../../data/user");
 
+// Prüfe ob das Passwort gültig ist und ob der Benutzer die korrekten Anmeldedaten angegeben hat.
 foreach ($files as $file) {
+    // Hole benutzerobjekt
     $userRaw = file_get_contents("../../data/user/".$file);
     $user = json_decode($userRaw, true);
 
+    // Prüfen auf Gültigkeit
     if (
         $user["email"] === $params["email"] &&
         password_verify($params["password"], $user["password"])
@@ -22,7 +26,7 @@ foreach ($files as $file) {
 }
 
 if ($foundUser !== null) {
-    // generiere token
+    // Generiere token
     $user["token"] = $userDAO->generateToken();
 
     // Speicher Benutzer in der Session
@@ -34,6 +38,7 @@ if ($foundUser !== null) {
     $API->print($user);
 }     
 
+// Fehlerausgabe
 $API->addError("login", "Anmeldung fehlgeschlagen!");
 $API->printErrors(422);
 

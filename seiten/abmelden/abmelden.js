@@ -1,4 +1,5 @@
 (async() => {
+    // Logge benutzer aus
     let response = await logout();
 
     if (response.status === 204) {

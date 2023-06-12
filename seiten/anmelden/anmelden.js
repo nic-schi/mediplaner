@@ -1,7 +1,6 @@
-var form = document.getElementById("anmelden-formular");
 hideLoader("page-loader");
 
-form.addEventListener("submit", async (e) => {
+document.getElementById("anmelden-formular").addEventListener("submit", async (e) => {
     e.preventDefault();
 
     // Hole Felder

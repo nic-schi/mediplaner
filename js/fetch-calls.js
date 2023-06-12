@@ -125,7 +125,9 @@ async function login(email, password) {
 }
 
 /**
- * Loggt den Benutzer aus.
+ * Loggt den benutzer aus
+ * 
+ * @returns Die Response
  */
 async function logout() {
     let response = await fetch("backend/user/logout.php", {
@@ -138,6 +140,8 @@ async function logout() {
 
 /**
  * Löscht den Benutzeraccount des aktuellen angemeldeten Benutzers
+ * 
+ * @returns Die Response
  */
 async function deleteUserAccount() {
     let response = await fetch("backend/user/delete.php", {

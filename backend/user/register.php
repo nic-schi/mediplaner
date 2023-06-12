@@ -23,7 +23,7 @@ if ($userDAO->emailExists($params["email"])) {
 }
 
 if (!$API->hasErrors()) {
-    // User kreieren
+    // User & Plan kreieren
     $user = $userDAO->create($params["email"], $params["username"], $params["password"]);
     $plan = $planDAO->create($user["id"], $user["id"]);
 

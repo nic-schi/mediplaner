@@ -18,15 +18,14 @@ function checkParams(required) {
     let currentParams = getParams();
 
     if (currentParams !== null) {
-        
         for (const [name, value] of Object.entries(required)) {
             let type = value.constructor.name;
 
             if (currentParams.has(name)) {
                 let paramValue = currentParams.get(name);
-
+                
+                // Prüft auf Parameter mit Arraywerten
                 if (type === "Array") {
-                    console.log(paramValue, value.includes(paramValue.toLocaleLowerCase()));
                     if (!value.includes(paramValue.toLocaleLowerCase())) {
                         return false;
                     }   
@@ -257,6 +256,7 @@ window.addEventListener("load", () => {
     document.getElementById("hamburger").addEventListener("click", () => toggleNavItems());
 });
 
+// Wenn außerhalb vom Nav geklickt wird, dann wird dieser versteckt.
 document.addEventListener("click", (event) => {
     let clickedOutside = typeof event.composedPath === 'function' &&  !event.composedPath().includes(document.getElementById("nav"));
     if (clickedOutside) {

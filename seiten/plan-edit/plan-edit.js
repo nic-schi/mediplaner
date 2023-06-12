@@ -2,6 +2,7 @@ var days = getDays();
 var times = getTimes();
 var units = getUnits();
 
+// Hole plan und platziere alle Medikamente im Formular
 getPlan(currentUser.id).then(res => res.json()).then(plan => {
     let params = getParams();
     let day = params.get("day");
@@ -10,6 +11,7 @@ getPlan(currentUser.id).then(res => res.json()).then(plan => {
     let dayIndex = Object.keys(days).findIndex(key => key === day);
     let timeIndex = Object.keys(times).findIndex(key => key === time);
 
+    // Hole nur die nötigen Medikamente
     let medications = plan["medications"].filter(medi => {
         return medi.day === dayIndex && medi.time === timeIndex;
     });
@@ -68,6 +70,7 @@ getPlan(currentUser.id).then(res => res.json()).then(plan => {
         mediContainer.append(mediElem);
     });
     medicamentCopy.remove();
+    addArrowsToNumberInputs();
 
     hideLoader("page-loader");
 });
@@ -128,6 +131,7 @@ document.getElementById("plan-edit-formular").addEventListener("submit", async (
         let day = params.get("day");
         let time = params.get("time");
 
+        // Aktualisere die Medikamente
         let response = await updateMedicaments(currentUser.id, day, time, JSON.stringify(data));
         
         if (response.status == 200) {        
