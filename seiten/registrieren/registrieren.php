@@ -5,13 +5,13 @@
 
     <form id="registrieren-formular">
         <div class="input-group">
-            <input id="username" name="username" required value="testuser" placeholder="Benutzername" value="" type="text" />
+            <input id="username" name="username" required value="testuser" placeholder="Benutzername" type="text" />
             <label for="username">Benutzername</label>
             <div class="feedback"></div>
         </div>
 
         <div class="input-group">
-            <input id="email" name="email" required value="testuser@email.de" placeholder="E-Mail-Adresse" value="" type="text" />
+            <input id="email" name="email" required value="testuser@email.de" placeholder="E-Mail-Adresse" type="text" />
             <label for="email">E-Mail-Adresse</label>
             <div class="feedback"></div>
         </div>

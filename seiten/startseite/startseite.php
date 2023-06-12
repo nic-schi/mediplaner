@@ -6,15 +6,15 @@
 
     <div class="headline">
         <svg width="800px" height="800px" viewBox="0 0 24 24">
-            <polyline data-name="Right" fill="none" id="Right-2" points="16.4 7 21.5 12 16.4 17" stroke="#1D58E9" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+            <polyline data-name="Right" fill="none" points="16.4 7 21.5 12 16.4 17" stroke="#1D58E9" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
             <line fill="none" stroke="#1D58E9" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" x1="2.5" x2="19.2" y1="12" y2="12"/>
         </svg>
         <span>Nie wieder Medikamente vergessen!</span>
     </div>
     
     <div class="overview">
-        <h2>Überblick über Medikamenteneinnahmen</h4>
-        <img class="plan-img" src="images/beispielplan.png" />
+        <h2>Überblick über Medikamenteneinnahmen</h2>
+        <img alt="Beispielplan" class="plan-img" src="images/beispielplan.png" />
 
         <p>Mit der intuitiven Benutzeroberfläche haben Sie Ihre Medikamente jederzeit und überall im Griff. Egal, ob Sie ein Technikgenie oder ein Technikmuffel sind, unser Planer macht es Ihnen leicht, Ihre individuelle Medikationsliste einzutragen und zu verwalten.</p>
         <p>Vergessen Sie die zeitaufwendige Suche nach Ihren Medikamenteninformationen – mit unserem Medikamentenplaner haben Sie alles, was Sie brauchen, auf einen Blick!</p>
@@ -23,11 +23,11 @@
     </div>
     
     <div class="smartphone">
-        <h2>Auch auf dem Smartphone</h4> 
+        <h2>Auch auf dem Smartphone</h2> 
 
         <div class="row">
             <div class="col">
-                <img class="plan-img-sm" src="images/beispielplan_sm.png" />
+                <img alt="Beispielplan (Smartphone)" class="plan-img-sm" src="images/beispielplan_sm.png" />
             </div>
             <div class="col">
                 <p>Und das Beste daran: Unser Medikamentenplaner ist sowohl auf Ihrem mobilen Gerät als auch auf Ihrem PC verfügbar. Ob Sie unterwegs sind, im Büro arbeiten oder sich entspannt zu Hause befinden, Sie können jederzeit und von überall aus auf Ihre Medikationsdaten zugreifen.</p>
@@ -44,7 +44,7 @@
         <div class="row cards">
             <div class="card col">
                 <div class="info-container">
-                    <img class="picture" src="images/customers/1.jpg" />
+                    <img alt="Kundenprofilfoto" class="picture" src="images/customers/1.jpg" />
                     <div class="info">
                         <span class="name">MediManiac24</span>
                         <p class="rating">
@@ -56,7 +56,7 @@
             </div>
             <div class="card col">
                 <div class="info-container">
-                    <img class="picture" src="images/customers/2.jpg" />
+                    <img alt="Kundenprofilfoto" class="picture" src="images/customers/2.jpg" />
                     <div class="info">
                         <span class="name">PillSwallower77</span>
                         <p class="rating">
@@ -68,7 +68,7 @@
             </div>
             <div class="card col">
                 <div class="info-container">
-                    <img class="picture" src="images/customers/3.jpg" />
+                    <img alt="Kundenprofilfoto" class="picture" src="images/customers/3.jpg" />
                     <div class="info">
                         <span class="name">PillQueen</span>
                         <p class="rating">
@@ -80,7 +80,7 @@
             </div>
             <div class="card col">
                 <div class="info-container">
-                    <img class="picture" src="images/customers/4.jpg" />
+                    <img alt="Kundenprofilfoto" class="picture" src="images/customers/4.jpg" />
                     <div class="info">
                         <span class="name">HealthyHolly</span>
                         <p class="rating">
@@ -94,7 +94,7 @@
         
         <div class="headline">
             <svg width="800px" height="800px" viewBox="0 0 24 24">
-                <polyline data-name="Right" fill="none" id="Right-2" points="16.4 7 21.5 12 16.4 17" stroke="#1D58E9" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                <polyline data-name="Right" fill="none" points="16.4 7 21.5 12 16.4 17" stroke="#1D58E9" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
                 <line fill="none" stroke="#1D58E9" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" x1="2.5" x2="19.2" y1="12" y2="12"/>
             </svg>
             <span>Verlassen Sie sich auf uns – wir lassen Sie nicht im Stich!</span>

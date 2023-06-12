@@ -3,19 +3,19 @@
         <div></div>
         <div class="time morning" title="Morgens">
             <span class="text">Morgens</span>
-            <img class="icon" src="images/icons/morgens.svg" />
+            <img class="icon" alt="morgens" src="images/icons/morgens.svg" />
         </div>
         <div class="time dinner" title="Mittags">
             <span class="text">Mittags</span>
-            <img class="icon" src="images/icons/mittags.svg" />
+            <img class="icon" alt="mittags" src="images/icons/mittags.svg" />
         </div>
         <div class="time evening" title="Abends">
             <span class="text">Abends</span>
-            <img class="icon" src="images/icons/abends.svg" />
+            <img class="icon" alt="abends" src="images/icons/abends.svg" />
         </div>
         <div class="time night" title="Nachts">
             <span class="text">Nachts</span>
-            <img class="icon" src="images/icons/nachts.svg" />
+            <img class="icon" alt="nachts" src="images/icons/nachts.svg" />
         </div>
         <?php
             // Baue struktur
@@ -68,7 +68,7 @@
                         <div class="day <?php echo $id." ".$time; ?>" title="<?php echo $data[0]; ?>">
                             <div class="time">
                                 <span class="text"><?php echo $data[0]; ?></span>
-                                <img class="icon" src="<?php echo $data[1]; ?>" />
+                                <img alt="<?php echo $data[0]; ?>" class="icon" src="<?php echo $data[1]; ?>" />
                             </div>
                             <div class="medications"></div>
                             <div class="buttons">

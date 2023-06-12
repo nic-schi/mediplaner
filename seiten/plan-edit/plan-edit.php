@@ -1,7 +1,7 @@
 <div class="container">
     <a href="#plan" class="back">
         <button class="small">
-            <img src="images/icons/arrow-left.svg"/>
+            <img alt="Pfeil links" src="images/icons/arrow-left.svg"/>
             Zurück zum Plan
         </button>
     </a>
@@ -30,7 +30,7 @@
                     <span class="mediname"></span>
                     
                     <button type="button" class="bad delete-button small">
-                        <img src="images/icons/trashcan.svg" />
+                        <img alt="Mülleimer" src="images/icons/trashcan.svg" />
                     </button>
                 </legend>
                 <div class="row">
