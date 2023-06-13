@@ -3,38 +3,28 @@
 
     <hr />
     
-    <p>Angaben gemäß § 5 TMG</p>
-    <p>Max Muster <br>
-        Musterweg<br>
-        12345 Musterstadt <br>
-    </p>
-    <p>
-        <strong>Vertreten durch: </strong><br>
-        Max Muster<br>
+    <p>Nichlas Schipper<br>
+        Wirtschaftsinformatikstudent im 7. Semester<br>
+        Jade Hochschule<br>
     </p>
     <p>
         <strong>Kontakt:</strong> <br>
-        Telefon: 01234-789456<br>
-        Fax: 1234-56789<br>
-        E-Mail: <a href='mailto:max@muster.de'>max@muster.de</a><br>
+        E-Mail: <a href='mailto:nichlas-schipper@web.de'>nichlas-schipper@web.de</a><br>
+    </p>
+    <p>Arbeit erstellt im Rahmen eines Wahlpflichtfaches des Studienganges Wirtschaftsinformatik der Jade Hochschule.<br>
+        Fertiggestellt am: 13.06.2023
     </p>
     <p>
-        <strong>Umsatzsteuer-ID: </strong> <br>
-        Umsatzsteuer-Identifikationsnummer gemäß §27a Umsatzsteuergesetz: Musterustid.<br><br>
-        <strong>Wirtschafts-ID: </strong><br>
-        Musterwirtschaftsid<br>
-    </p>
-    <p>
-        <strong>Aufsichtsbehörde:</strong><br>
-        Musteraufsicht Musterstadt<br>
+        <strong>Professor:</strong><br>
+        Herrn David Röskamm<br>
     </p>
     <p>
         <strong>Quellen:</strong><br>
         Icons: <a href="https://www.svgrepo.com">svgrepo.com</a> <br/>
-        Kundenrezensionen: <a href="https://deepai.org/machine-learning-model/cute-creature-generator">deepai.org</a> <br/>
+        Kundenbilder bei Rezensionen: <a href="https://deepai.org/machine-learning-model/cute-creature-generator">deepai.org</a> <br/>
         Texte: <a href="https://chat.openai.com/">Chat GPT</a>
     </p>
-    
-    <br>
-    Website Impressum von <a href="https://www.impressum-generator.de">impressum-generator.de</a>
+    <p>
+        Weiter Informationen sind im <a href="https://github.com/nic-schi/mediplaner">Github-Repository</a> einlesbar.
+    </p>
 </div>
