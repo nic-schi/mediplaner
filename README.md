@@ -40,7 +40,7 @@ Dies produziert folgende Ausgabe:
 
 <br clear="left"/>
 <br/>
-Größe des Projektes (Bilder und JSON exkludiert): **380 KB**
+Größe des Projektes (Bilder und JSON exkludiert): <b>380 KB</b>
 
 ## Poster
 ![Poster](https://github.com/nic-schi/mediplaner/assets/43421445/9881bcb3-67dd-45f2-a397-6bea0ce7ed2a)
