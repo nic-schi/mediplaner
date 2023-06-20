@@ -1,5 +1,5 @@
 # mediplaner
-**Ein Programm zum Planen von Medikamenteneinnahmen.**
+**Ein Webapplikation zum Planen von Medikamenteneinnahmen.**
 
 Erleben Sie den ultimativen Komfort und die unschätzbare Ruhe, die Ihnen unser revolutionärer Medikamentenplaner bietet! Endlich gibt es eine einfache und elegante Lösung, um den Überblick über Ihre wertvollen Medikamente zu behalten – egal ob Sie unterwegs sind oder zu Hause am PC sitzen.
 
